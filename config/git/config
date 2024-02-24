@@ -28,4 +28,4 @@
     strategy = incremental
 
 [includeIf "gitdir:~/Bannerflow/"]
-    path = ~/.config/git/bannerflow.gitconfig
+    path = ~/.config/git/bf.gitconfig
