@@ -25,3 +25,11 @@ if [ ! -L ${git_config_path} ]; then
     echo "GIT config doesn't exist"
     ln -s ${git_config} ${git_config_path}
 fi
+
+# ZSH
+zsh_config="$REPO_PATH/zsh/zshrc"
+zsh_config_path="$HOME/.zshrc"
+if [ ! -L ${zsh_config_path} ]; then
+    echo "ZSH config doesn't exist"
+    ln -s ${zsh_config} ${zsh_config_path}
+fi
