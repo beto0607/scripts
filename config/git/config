@@ -1,0 +1,31 @@
+[user]
+	email = beto0607@gmail.com
+	name = Roberto Albanesi
+[alias]
+	s = status
+	co = checkout
+	ps = push
+	psf = push --force
+	psu = push -u origin HEAD
+	psfu = push -u origin HEAD --force
+	pl = pull
+	cm = commit -m
+	cmn = commit --no-verify -m
+	cma = commit -am
+	aa = add --all
+	rehard = reset --hard HEAD~1
+	resoft = reset --soft HEAD~1
+	spush = stash push
+	spop = stash pop
+	sl = stash list
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
+
+[maintenance]
+    auto = false
+    strategy = incremental
+
+[includeIf "gitdir:~/Bannerflow/"]
+    path = ~/.config/git/bannerflow.gitconfig
