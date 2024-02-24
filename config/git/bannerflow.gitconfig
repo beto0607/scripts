@@ -10,4 +10,4 @@
     format = ssh
 
 [core]
-    sshCommand = ssh -i ~/.ssh/bf_rsa.pub
+    sshCommand = ssh -i ~/.ssh/bf_rsa
