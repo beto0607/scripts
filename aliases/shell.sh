@@ -18,3 +18,8 @@ alias tmux_config="cd ~/.config/tmux/; nvim ."
 
 # GIT
 alias git_config="cd ~/.config/git/; nvim ."
+
+# xClip
+alias "xC=xclip"
+alias "xc=xclip -selection clipboard"
+alias "xv=xclip -o"
