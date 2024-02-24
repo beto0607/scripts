@@ -33,3 +33,11 @@ if [ ! -L ${zsh_config_path} ]; then
     echo "ZSH config doesn't exist"
     ln -s ${zsh_config} ${zsh_config_path}
 fi
+
+# SSH
+ssh_config="$REPO_PATH/ssh/config"
+ssh_config_path="$HOME/.ssh/config"
+if [ ! -L ${ssh_config_path} ]; then
+    echo "SSH config doesn't exist"
+    ln -s ${ssh_config} ${ssh_config_path}
+fi

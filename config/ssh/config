@@ -1,0 +1,14 @@
+Host github-bf
+    Hostname github.com
+    AddKeysToAgent  yes
+    IdentityFile ~/.ssh/bf_rsa
+
+Host github.com
+    Hostname github.com
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/github_beto0607_rsa
+
+Host bitbucket.com
+    Hostname bitbucket.com
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/bitbutcket_rsa
