@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+awk '!/^[[:space:]]*#/ && /127\.0\.0\.1[[:space:]]+sandbox-studio\.bannerflow\.com/ {$0 = "#" $0} {print}' /etc/hosts > /tmp/modified_hosts
+sudo mv /tmp/modified_hosts /etc/hosts
+
+resolvectl flush-caches
