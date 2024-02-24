@@ -1,6 +1,7 @@
 [user]
 	email = beto0607@gmail.com
 	name = Roberto Albanesi
+
 [alias]
 	s = status
 	co = checkout
@@ -18,14 +19,19 @@
 	spush = stash push
 	spop = stash pop
 	sl = stash list
+
 [core]
 	editor = vim
+
 [init]
 	defaultBranch = main
 
 [maintenance]
     auto = false
     strategy = incremental
+
+[core]
+    sshCommand = ssh -i ~/.ssh/github_beto0607_rsa
 
 [includeIf "gitdir:~/Bannerflow/"]
     path = ~/.config/git/bf.gitconfig
