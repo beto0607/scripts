@@ -1,10 +1,10 @@
 #!/bin/zsh
 
-cd $(dirname "$0")
+DIR="$(dirname $0)"
 
 # Link config folders
-source ../config/link_configs.sh
+source $DIR/../config/link_configs.sh
 
 # Setup aliases
-source ../aliases/init.sh
+source $DIR/../aliases/init.sh
 

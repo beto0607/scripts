@@ -1,7 +1,8 @@
 #!/bin/zsh
 
-cd $(dirname "$0")
+DIR="$(dirname $0)"
 
-source ./shell.sh
-source ./bannerflow.sh
+
+source $DIR/shell.sh
+source $DIR/bannerflow.sh
 
