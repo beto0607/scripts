@@ -22,7 +22,7 @@
 	compare = ! ~/Personal/scripts/scripts/git/open_compare 
 
 [core]
-	editor = vim
+	editor = nvim
 
 [init]
 	defaultBranch = main

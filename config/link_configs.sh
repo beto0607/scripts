@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-REPO_PATH=$(pwd)
+REPO_PATH="./$(dirname $0)"
 
 # NVIM
 nvim_config="$REPO_PATH/nvim"

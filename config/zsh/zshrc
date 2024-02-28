@@ -3,7 +3,7 @@
 # -- ZSH/term configs
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-plugins=(git)
+plugins=(git z  zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 export TERM=xterm-256color
 
@@ -50,7 +50,10 @@ LANGUAGES_PATHS="$GO_LANG_PATHS:$NPM_PATHS:$ANDROID_PATHS:$PYTHON_PATHS"
 # -- SpotifyD
 export SPOTIFYD="$HOME/spotify/spotifyd/target/release/"
 
-APPS_PATHS="$SPOTIFYD"
+# -- Nvim
+export NVIM_PATH="$HOME/nvim/"
+
+APPS_PATHS="$SPOTIFYD:$NVIM_PATH/bin"
 # ----------------------------------
 
 # -- custom scripts
@@ -69,7 +72,7 @@ export PATH="$SYSTEM_PATHS:$LANGUAGES_PATHS:$APPS_PATHS:$CUSTOM_PATHS:$PATH"
 source $PERSONAL_FOLDER/scripts/scripts/init.sh
 
 # Plugins
-source /home/beto0607/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /home/beto0607/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Pyenv
 eval "$(pyenv init --path)"
