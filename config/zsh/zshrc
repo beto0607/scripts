@@ -20,9 +20,6 @@ SYSTEM_PATHS="$LOCAL_FOLDER"
 # -- Python
 export PYENV_ROOT="$HOME/.pyenv"
 PYTHON_PATHS="$PYENV_ROOT/bin"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # -- Android/Flutter/Java
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
@@ -74,3 +71,7 @@ source $PERSONAL_FOLDER/scripts/scripts/init.sh
 # Plugins
 source /home/beto0607/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Pyenv
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
