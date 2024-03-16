@@ -48,21 +48,21 @@ lsp.configure('cssls', {
 lsp.configure('gopls', {
     on_attach = function()
         lsp.on_attach()
-        vim.keymap.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })
-        vim.keymap.set("n", "<leader>dus", function()
+        vim.keymap.set("n", "<leader>gbp", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })
+        vim.keymap.set("n", "<leader>gdu", function()
             local widgets = require("dap.ui.widgets")
             local sidebar = widgets.sidebar(widgets.scopes)
             sidebar.open()
         end)
 
-        vim.keymap.set("n", "<leader>dgt", function()
+        vim.keymap.set("n", "<leader>gdt", function()
             require("dap-go").debug_test()
         end)
-        vim.keymap.set("n", "<leader>dgl", function()
+        vim.keymap.set("n", "<leader>gdl", function()
             require("dap-go").debug_last()
         end)
-        vim.keymap.set("n","<leader>gsj", "<cmd> GoTagAdd json <CR>")
-        vim.keymap.set("n","<leader>gsb", "<cmd> GoTagAdd bson <CR>")
+        vim.keymap.set("n", "<leader>gsj", "<cmd> GoTagAdd json <CR>")
+        vim.keymap.set("n", "<leader>gsb", "<cmd> GoTagAdd bson <CR>")
     end,
     capabilities = capabilities,
     cmd = { "gopls" },
@@ -80,16 +80,6 @@ lsp.configure('gopls', {
     }
 
 })
-
--- lsp.jsonls.setup {
---     cmd = { "vscode-json-languageserver", "--stdio" },
---     on_attach = on_attach,
---     capabilities = capabilities,
--- }
-
-
-
--- require 'lspconfig'.tailwindcss.setup {}
 
 lsp.setup_servers({ 'dartls', force = true })
 
@@ -135,7 +125,7 @@ lsp.setup_nvim_cmp({
 
 
 lsp.on_attach(function(client, bufnr)
-    local opts = { buffer = bfnr, remap = false }
+    local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "<leader>td", function() vim.lsp.buf.type_definition() end, opts)
