@@ -1,0 +1,21 @@
+#!/bin/zsh
+
+REMOTE_ORIGIN="origin"
+mainBranch='main'
+
+if [ "$1" = "--fetch-main" ]; then
+    echo "Fetching main..."
+    mainBranch=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+fi
+
+currentBranch=$(git branch --show-current)
+compareUrl=$(git remote get-url $REMOTE_ORIGIN)
+
+compareUrl=$(echo "$compareUrl" | sed -e 's/git\@/https\:\/\//') # replace protocol
+compareUrl=$(echo "$compareUrl" | sed -e 's/com\:/com\//') # replace ':' between github.com and org_name
+compareUrl=$(echo "$compareUrl" | sed -e 's/\.git//') # remove .git extension
+compareUrl="$compareUrl/compare/$mainBranch...$currentBranch"
+
+echo "URL: $compareUrl"
+
+xdg-open $compareUrl

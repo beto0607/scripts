@@ -18,8 +18,11 @@ alias tmux_config="cd ~/.config/tmux/; nvim ."
 
 # GIT
 alias git_config="cd ~/.config/git/; nvim ."
+alias git_compare="source ~/Personal/scripts/scripts/git/open_compare"
 
 # xClip
 alias "xC=xclip"
 alias "xc=xclip -selection clipboard"
 alias "xv=xclip -o"
+
+

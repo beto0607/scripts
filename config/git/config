@@ -19,6 +19,7 @@
 	spush = stash push
 	spop = stash pop
 	sl = stash list
+	compare = ! ~/Personal/scripts/scripts/git/open_compare 
 
 [core]
 	editor = vim

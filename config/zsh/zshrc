@@ -56,13 +56,13 @@ APPS_PATHS="$SPOTIFYD"
 # -- custom scripts
 export PERSONAL_FOLDER="$HOME/Personal"
 export SCRIPTS_FOLDER="$PERSONAL_FOLDER/scripts"
-PERSONAL_PATHS="$SCRIPTS_FOLDER/bin"
+PERSONAL_PATHS="$SCRIPTS_FOLDER/scripts"
 
-CUSTOME_PATHS="$PERSONAL_PATHS"
+CUSTOM_PATHS="$PERSONAL_PATHS"
 # ----------------------------------
 
 # ----------------------------------
-export PATH="$SYSTEM_PATHS:$LANGUAGES_PATHS:$APPS_PATHS:$CUSTOME_PATHS:$PATH"
+export PATH="$SYSTEM_PATHS:$LANGUAGES_PATHS:$APPS_PATHS:$CUSTOM_PATHS:$PATH"
 # ----------------------------------
 
 # Init custom confs
