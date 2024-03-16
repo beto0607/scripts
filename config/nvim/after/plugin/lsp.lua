@@ -83,14 +83,6 @@ lsp.configure('gopls', {
 
 lsp.setup_servers({ 'dartls', force = true })
 
-local function organize_imports()
-    local params = {
-        command = '_typescript.organizeImports',
-        arguments = { vim.api.nvim_buf_get_name(0) },
-        title = '',
-    }
-    vim.lsp.buf.execute_command(params)
-end
 
 lsp.configure('tsserver', {
     on_attach = function()
@@ -98,12 +90,6 @@ lsp.configure('tsserver', {
         vim.keymap.set("n", "<leader>o", function() vim.cmd.OrganizeImports() end, opts)
     end,
     capabilities = capabilities,
-    commands = {
-        OrganizeImports = {
-            organize_imports,
-            description = 'Organize Imports'
-        }
-    }
 })
 
 local cmp = require("cmp")
@@ -144,6 +130,10 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+    vim.keymap.set("n", "<leader>o", function()
+        vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } }, apply = true })
+    end)
 
     vim.keymap.set('n', '<leader>f', function()
         vim.lsp.buf.format { async = true }
