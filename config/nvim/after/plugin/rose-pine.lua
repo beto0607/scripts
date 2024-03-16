@@ -1,4 +1,4 @@
-require('rose-pine').setup({
-    variant = 'moon',
-})
+-- require('rose-pine').setup({
+--     variant = 'moon',
+-- })
 

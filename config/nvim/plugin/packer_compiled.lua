@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -118,6 +123,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/git-blame.nvim",
     url = "https://github.com/f-person/git-blame.nvim"
+  },
+  ["gopher.nvim"] = {
+    config = { "\27LJ\2\0028\0\2\4\0\3\0\a6\2\0\0'\3\1\0B\2\2\0029\2\2\2\18\3\1\0B\2\2\1K\0\1\0\nsetup\vgopher\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/beto0607/.local/share/nvim/site/pack/packer/opt/gopher.nvim",
+    url = "https://github.com/olexsmir/gopher.nvim"
   },
   harpoon = {
     loaded = true,
@@ -188,6 +201,19 @@ _G.packer_plugins = {
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-coverage",
     url = "https://github.com/andythigpen/nvim-coverage"
   },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-go"] = {
+    config = { "\27LJ\2\0028\0\2\4\0\3\0\a6\2\0\0'\3\1\0B\2\2\0029\2\2\2\18\3\1\0B\2\2\1K\0\1\0\nsetup\vdap-go\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/beto0607/.local/share/nvim/site/pack/packer/opt/nvim-dap-go",
+    url = "https://github.com/leoluz/nvim-dap-go"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -247,12 +273,6 @@ _G.packer_plugins = {
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/prettier.nvim",
     url = "https://github.com/MunifTanjim/prettier.nvim"
   },
-  ["rose-pine"] = {
-    config = { "\27LJ\2\2e\0\0\2\0\6\0\n6\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\0016\0\3\0009\0\4\0'\1\5\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\nsetup\14rose-pine\frequire\0" },
-    loaded = true,
-    path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/rose-pine",
-    url = "https://github.com/rose-pine/neovim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -305,12 +325,12 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: rose-pine
-time([[Config for rose-pine]], true)
-try_loadstring("\27LJ\2\2e\0\0\2\0\6\0\n6\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\0016\0\3\0009\0\4\0'\1\5\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\nsetup\14rose-pine\frequire\0", "config", "rose-pine")
-time([[Config for rose-pine]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType go ++once lua require("packer.load")({'nvim-dap-go', 'gopher.nvim'}, { ft = "go" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-ts-autotag'}, { event = "InsertEnter *" }, _G.packer_plugins)]]

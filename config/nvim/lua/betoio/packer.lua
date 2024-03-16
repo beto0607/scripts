@@ -15,14 +15,41 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            require("rose-pine").setup()
-            vim.cmd('colorscheme rose-pine')
+
+    use { "catppuccin/nvim", as = "catppuccin" }
+
+    use { "mfussenegger/nvim-dap" }
+    use {
+        "olexsmir/gopher.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        ft = "go",
+        config = function(_, opts)
+            require("gopher").setup(opts)
+        end,
+        build = function()
+            vim.cmd [[silent! GoInstallDeps]]
         end
-    })
+    }
+    use {
+        "leoluz/nvim-dap-go",
+        ft = "go",
+        dependencies = "mfussenegger/nvim-dap",
+        config = function(_, opts)
+            require("dap-go").setup(opts)
+        end
+    }
+
+    -- use({
+    --     'rose-pine/neovim',
+    --     as = 'rose-pine',
+    --     config = function()
+    --         require("rose-pine").setup()
+    --         vim.cmd('colorscheme rose-pine')
+    --     end
+    -- })
 
     use('christoomey/vim-tmux-navigator')
 

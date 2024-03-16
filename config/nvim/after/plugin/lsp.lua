@@ -1,6 +1,8 @@
 local lsp = require("lsp-zero")
 
+
 local lspconfig = require('lspconfig')
+local util = require "lspconfig/util"
 
 lspconfig.pyright.setup {}
 
@@ -17,6 +19,7 @@ lsp.ensure_installed({
     'yamlls',
     -- 'dartls',
     'vimls',
+    'gopls'
 })
 
 
@@ -42,6 +45,42 @@ lsp.configure('cssls', {
     cmd = { "css-languageserver", "--stdio" },
 })
 
+lsp.configure('gopls', {
+    on_attach = function()
+        lsp.on_attach()
+        vim.keymap.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })
+        vim.keymap.set("n", "<leader>dus", function()
+            local widgets = require("dap.ui.widgets")
+            local sidebar = widgets.sidebar(widgets.scopes)
+            sidebar.open()
+        end)
+
+        vim.keymap.set("n", "<leader>dgt", function()
+            require("dap-go").debug_test()
+        end)
+        vim.keymap.set("n", "<leader>dgl", function()
+            require("dap-go").debug_last()
+        end)
+        vim.keymap.set("n","<leader>gsj", "<cmd> GoTagAdd json <CR>")
+        vim.keymap.set("n","<leader>gsb", "<cmd> GoTagAdd bson <CR>")
+    end,
+    capabilities = capabilities,
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+
+    settings = {
+        gopls = {
+            usePlaceholders = true,
+            completeUnimported = true,
+            analyses = {
+                unusedparams = true
+            }
+        }
+    }
+
+})
+
 -- lsp.jsonls.setup {
 --     cmd = { "vscode-json-languageserver", "--stdio" },
 --     on_attach = on_attach,
@@ -64,7 +103,10 @@ local function organize_imports()
 end
 
 lsp.configure('tsserver', {
-    on_attach = on_attach,
+    on_attach = function()
+        lsp.on_attach()
+        vim.keymap.set("n", "<leader>o", function() vim.cmd.OrganizeImports() end, opts)
+    end,
     capabilities = capabilities,
     commands = {
         OrganizeImports = {
@@ -113,7 +155,6 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
-    vim.keymap.set("n", "<leader>o", function() vim.cmd.OrganizeImports() end, opts)
     vim.keymap.set('n', '<leader>f', function()
         vim.lsp.buf.format { async = true }
     end, opts)
