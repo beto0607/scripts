@@ -30,8 +30,8 @@ export ANDROID_TOOLS="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_
 export JAVA_HOME="/usr/lib/jvm/java-19-openjdk-amd64"
 
 # -- Go lang
-export GO_LANG_HOME="/usr/local/go/bin"
-export GOPATH="$HOME/go"
+export GO_LANG_HOME="$HOME/Apps/go/bin"
+export GOPATH="$HOME/Apps/go"
 GO_LANG_PATHS="$GOPATH/bin:$GO_LANG_HOME"
 
 # -- NPM
