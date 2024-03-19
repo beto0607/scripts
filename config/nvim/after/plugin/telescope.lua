@@ -7,3 +7,14 @@ vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 
 vim.keymap.set('n', '<leader>ps', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>pg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+
+require("telescope").setup { 
+    pickers = {
+        live_grep = {
+            additional_args = function(opts)
+                return {"--hidden"}
+            end
+        },
+    },
+}
+

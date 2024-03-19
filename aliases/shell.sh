@@ -25,4 +25,6 @@ alias "xC=xclip"
 alias "xc=xclip -selection clipboard"
 alias "xv=xclip -o"
 
+# Flush DNS
 
+alias flush_dns="sudo resolvectl flush-caches"

@@ -51,9 +51,12 @@ LANGUAGES_PATHS="$GO_LANG_PATHS:$NPM_PATHS:$ANDROID_PATHS:$PYTHON_PATHS"
 export SPOTIFYD="$HOME/spotify/spotifyd/target/release/"
 
 # -- Nvim
-export NVIM_PATH="$HOME/nvim/"
+export NVIM_PATH="$HOME/nvim"
 
-APPS_PATHS="$SPOTIFYD:$NVIM_PATH/bin"
+# -- K9s
+export K9S_PATH="$HOME/Apps/k9s/execs/"
+
+APPS_PATHS="$SPOTIFYD:$NVIM_PATH/bin:$K9S_PATH"
 # ----------------------------------
 
 # -- custom scripts
@@ -70,6 +73,11 @@ export PATH="$SYSTEM_PATHS:$LANGUAGES_PATHS:$APPS_PATHS:$CUSTOM_PATHS:$PATH"
 
 # Init custom confs
 source $PERSONAL_FOLDER/scripts/scripts/init.sh
+
+# Init Secrets
+if [ -f "$PERSONAL_FOLDER/../secrets.sh" ]; then
+    source $PERSONAL_FOLDER/../secrets.sh
+fi
 
 # Plugins
 #source /home/beto0607/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
