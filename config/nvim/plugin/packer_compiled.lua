@@ -125,7 +125,7 @@ _G.packer_plugins = {
     url = "https://github.com/f-person/git-blame.nvim"
   },
   ["gopher.nvim"] = {
-    config = { "\27LJ\2\0028\0\2\4\0\3\0\a6\2\0\0'\3\1\0B\2\2\0029\2\2\2\18\3\1\0B\2\2\1K\0\1\0\nsetup\vgopher\frequire\0" },
+    config = { "\27LJ\2\n8\0\2\5\0\3\0\a6\2\0\0'\4\1\0B\2\2\0029\2\2\2\18\4\1\0B\2\2\1K\0\1\0\nsetup\vgopher\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -207,7 +207,7 @@ _G.packer_plugins = {
     url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-dap-go"] = {
-    config = { "\27LJ\2\0028\0\2\4\0\3\0\a6\2\0\0'\3\1\0B\2\2\0029\2\2\2\18\3\1\0B\2\2\1K\0\1\0\nsetup\vdap-go\frequire\0" },
+    config = { "\27LJ\2\n8\0\2\5\0\3\0\a6\2\0\0'\4\1\0B\2\2\0029\2\2\2\18\4\1\0B\2\2\1K\0\1\0\nsetup\vdap-go\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -329,7 +329,7 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType go ++once lua require("packer.load")({'nvim-dap-go', 'gopher.nvim'}, { ft = "go" }, _G.packer_plugins)]]
+vim.cmd [[au FileType go ++once lua require("packer.load")({'gopher.nvim', 'nvim-dap-go'}, { ft = "go" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
