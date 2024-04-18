@@ -14,10 +14,10 @@ alias acg_start_dev="cd $STUDIO_PATH; npx nx run acg:serve:development"
 alias npm_test_ng="cd $STUDIO_PATH; npm run test:ng -- --watch --silent=false"
 
 # Remote infra
-alias gateway_up="cd $REMOTE_INFRA_PATH; docker compose -f docker-compose-linux.yml up -d"
-alias gateway_up_mac="cd $REMOTE_INFRA_PATH; docker compose -f docker-compose-mac.yml up -d"
-alias gateway_down="cd $REMOTE_INFRA_PATH; docker compose -f docker-compose-linux.yml down"
-alias gateway_down_mac="cd $REMOTE_INFRA_PATH; docker compose -f docker-compose-mac.yml down"
+alias gateway_up="cd $REMOTE_INFRA_PATH; docker compose up -d linux"
+alias gateway_up_mac="cd $REMOTE_INFRA_PATH; docker compose up -d mac"
+alias gateway_down="cd $REMOTE_INFRA_PATH; docker compose down linux"
+alias gateway_down_mac="cd $REMOTE_INFRA_PATH; docker compose down mac"
 
 
 # Utils
