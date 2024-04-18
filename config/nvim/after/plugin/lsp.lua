@@ -61,8 +61,8 @@ lsp.configure('gopls', {
         vim.keymap.set("n", "<leader>gdl", function()
             require("dap-go").debug_last()
         end)
-        vim.keymap.set("n", "<leader>gsj", "<cmd> GoTagAdd json <CR>")
-        vim.keymap.set("n", "<leader>gsb", "<cmd> GoTagAdd bson <CR>")
+        vim.keymap.set("n", "<leader>gtj", "<cmd> GoTagAdd json <CR>")
+        vim.keymap.set("n", "<leader>gtb", "<cmd> GoTagAdd bson <CR>")
     end,
     capabilities = capabilities,
     cmd = { "gopls" },
