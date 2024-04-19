@@ -83,13 +83,27 @@ lsp.configure('gopls', {
 
 lsp.setup_servers({ 'dartls', force = true })
 
+local function organize_imports()
+    local params = {
+        command = '_typescript.organizeImports',
+        arguments = { vim.api.nvim_buf_get_name(0) },
+        title = '',
+    }
+    vim.lsp.buf.execute_command(params)
+end
 
 lsp.configure('tsserver', {
     on_attach = function()
         lsp.on_attach()
-        vim.keymap.set("n", "<leader>o", function() vim.cmd.OrganizeImports() end, opts)
+        vim.keymap.set("n", "<leader>O", function() vim.cmd.OrganizeImports() end, opts)
     end,
     capabilities = capabilities,
+    commands = {
+        OrganizeImports = {
+            organize_imports,
+            description = 'Organize Imports'
+        }
+    }
 })
 
 local cmp = require("cmp")
