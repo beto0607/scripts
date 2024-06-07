@@ -13,7 +13,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # -- .local folder
 LOCAL_FOLDER="$HOME/.local/"
 
-SYSTEM_PATHS="$LOCAL_FOLDER"
+SYSTEM_PATHS="$LOCAL_FOLDER:$LOCAL_FOLDER/bin"
 # ----------------------------------
 
 # Languages
