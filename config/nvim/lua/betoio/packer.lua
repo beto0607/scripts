@@ -4,109 +4,51 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    use({
-        "stevearc/oil.nvim",
-    })
+    use("stevearc/oil.nvim")
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     use 'nvim-lua/plenary.nvim'
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.3',
-        -- or                            , branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.6' }
 
     use { "catppuccin/nvim", as = "catppuccin" }
 
-    use { "mfussenegger/nvim-dap" }
-    use {
-        "olexsmir/gopher.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-        },
-        ft = "go",
-        config = function(_, opts)
-            require("gopher").setup(opts)
-        end,
-        build = function()
-            vim.cmd [[silent! GoInstallDeps]]
-        end
-    }
-    use {
-        "leoluz/nvim-dap-go",
-        ft = "go",
-        dependencies = "mfussenegger/nvim-dap",
-        config = function(_, opts)
-            require("dap-go").setup(opts)
-        end
-    }
-
-    -- use({
-    --     'rose-pine/neovim',
-    --     as = 'rose-pine',
-    --     config = function()
-    --         require("rose-pine").setup()
-    --         vim.cmd('colorscheme rose-pine')
-    --     end
-    -- })
-
     use('christoomey/vim-tmux-navigator')
 
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-    use('nvim-treesitter/playground')
 
-    use('ThePrimeagen/harpoon')
+    use('nvim-treesitter/nvim-treesitter', {
+        run = ':TSUpdate',
+        event = { "BufReadPre", "BufNewFile" },
+    })
+    use('nvim-treesitter/playground')
 
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
     use('lukas-reineke/indent-blankline.nvim')
-    use('terrortylor/nvim-comment')
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
     use('nvim-tree/nvim-web-devicons')
-    use({
-        'nvim-lualine/lualine.nvim',
-    })
-
-
-    use({
-        "andythigpen/nvim-coverage",
-        requires = "nvim-lua/plenary.nvim",
-    })
+    use('nvim-lualine/lualine.nvim')
 
     use({
         "williamboman/mason.nvim",
-        run = ":MasonUpdate"
+        run = ":MasonUpdate",
     })
 
     use {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v1.x',
+        branch = 'v3.x',
         requires = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },             -- Required
-            { 'williamboman/mason.nvim' },           -- Optional
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },         -- Required
-            { 'hrsh7th/cmp-nvim-lsp' },     -- Required
-            { 'hrsh7th/cmp-buffer' },       -- Optional
-            { 'hrsh7th/cmp-path' },         -- Optional
-            { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-            { 'hrsh7th/cmp-nvim-lua' },     -- Optional
-
-            -- Snippets
-            { 'L3MON4D3/LuaSnip' },             -- Required
-            { 'rafamadriz/friendly-snippets' }, -- Optional
-        }
-    }
-
-    use {
-        "SmiteshP/nvim-navbuddy",
-        requires = {
-            "neovim/nvim-lspconfig",
-            "SmiteshP/nvim-navic",
-            "MunifTanjim/nui.nvim"
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
+            { 'neovim/nvim-lspconfig' },
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'L3MON4D3/LuaSnip' },
         }
     }
 
@@ -126,16 +68,42 @@ return require('packer').startup(function(use)
     -- Auto tag
     use {
         "windwp/nvim-ts-autotag",
-        wants = "nvim-treesitter",
         event = "InsertEnter",
         config = function()
-            require("nvim-ts-autotag").setup { enable = true }
+            require("nvim-ts-autotag").setup({
+                enabled = true,
+                opts = {
+                    -- Defaults
+                    enable_close = true,          -- Auto close tags
+                    enable_rename = true,         -- Auto rename pairs of tags
+                    enable_close_on_slash = false -- Auto close on trailing </
+                },
+            })
         end,
     }
     use('f-person/git-blame.nvim')
-    use('dart-lang/dart-vim-plugin')
 
-    use('neovim/nvim-lspconfig')
     use('jose-elias-alvarez/null-ls.nvim')
     use('MunifTanjim/prettier.nvim')
+
+    use {
+        "olexsmir/gopher.nvim",
+        ft = "go",
+        config = function(_, opts)
+            require("gopher").setup(opts)
+        end,
+        build = function()
+            vim.cmd [[silent! GoInstallDeps]]
+        end
+    }
+    use("mfussenegger/nvim-dap")
+    use {
+        "leoluz/nvim-dap-go",
+        ft = "go",
+        dependencies = "mfussenegger/nvim-dap",
+        config = function(_, opts)
+            require("dap-go").setup(opts)
+        end
+    }
+    use("HiPhish/rainbow-delimiters.nvim")
 end)

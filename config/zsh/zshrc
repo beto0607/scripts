@@ -32,7 +32,7 @@ export JAVA_HOME="/usr/lib/jvm/java-19-openjdk-amd64"
 # -- Go lang
 # export GO_LANG_HOME="$HOME/Apps/go/bin"
 export GOPATH="$HOME/Personal/.gopath"
-GO_LANG_PATHS="$HOME/Apps/go/bin"
+GO_LANG_PATHS="$HOME/Apps/go/bin:$GOPATH/bin"
 
 # -- NPM
 NPM_PACKAGES="$HOME/.npm-packages"
