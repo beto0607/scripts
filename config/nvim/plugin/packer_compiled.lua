@@ -132,11 +132,6 @@ _G.packer_plugins = {
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/opt/gopher.nvim",
     url = "https://github.com/olexsmir/gopher.nvim"
   },
-  harpoon = {
-    loaded = true,
-    path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/harpoon",
-    url = "https://github.com/ThePrimeagen/harpoon"
-  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -167,11 +162,6 @@ _G.packer_plugins = {
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["nui.nvim"] = {
-    loaded = true,
-    path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nui.nvim",
-    url = "https://github.com/MunifTanjim/nui.nvim"
-  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -191,16 +181,6 @@ _G.packer_plugins = {
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
-  ["nvim-comment"] = {
-    loaded = true,
-    path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-comment",
-    url = "https://github.com/terrortylor/nvim-comment"
-  },
-  ["nvim-coverage"] = {
-    loaded = true,
-    path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-coverage",
-    url = "https://github.com/andythigpen/nvim-coverage"
-  },
   ["nvim-dap"] = {
     loaded = true,
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-dap",
@@ -218,16 +198,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-navbuddy"] = {
-    loaded = true,
-    path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-navbuddy",
-    url = "https://github.com/SmiteshP/nvim-navbuddy"
-  },
-  ["nvim-navic"] = {
-    loaded = true,
-    path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-navic",
-    url = "https://github.com/SmiteshP/nvim-navic"
   },
   ["nvim-treesitter"] = {
     loaded = true,

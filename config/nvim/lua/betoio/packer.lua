@@ -42,35 +42,19 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- use({
-    --     'rose-pine/neovim',
-    --     as = 'rose-pine',
-    --     config = function()
-    --         require("rose-pine").setup()
-    --         vim.cmd('colorscheme rose-pine')
-    --     end
-    -- })
 
     use('christoomey/vim-tmux-navigator')
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('nvim-treesitter/playground')
 
-    use('ThePrimeagen/harpoon')
 
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
     use('lukas-reineke/indent-blankline.nvim')
-    use('terrortylor/nvim-comment')
     use('nvim-tree/nvim-web-devicons')
     use({
         'nvim-lualine/lualine.nvim',
-    })
-
-
-    use({
-        "andythigpen/nvim-coverage",
-        requires = "nvim-lua/plenary.nvim",
     })
 
     use({
@@ -98,15 +82,6 @@ return require('packer').startup(function(use)
             -- Snippets
             { 'L3MON4D3/LuaSnip' },             -- Required
             { 'rafamadriz/friendly-snippets' }, -- Optional
-        }
-    }
-
-    use {
-        "SmiteshP/nvim-navbuddy",
-        requires = {
-            "neovim/nvim-lspconfig",
-            "SmiteshP/nvim-navic",
-            "MunifTanjim/nui.nvim"
         }
     }
 
