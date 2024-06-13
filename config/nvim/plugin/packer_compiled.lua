@@ -74,6 +74,12 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    config = { "\27LJ\2\0025\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0" },
+    loaded = true,
+    path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -124,14 +130,6 @@ _G.packer_plugins = {
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/git-blame.nvim",
     url = "https://github.com/f-person/git-blame.nvim"
   },
-  ["gopher.nvim"] = {
-    config = { "\27LJ\2\0028\0\2\4\0\3\0\a6\2\0\0'\3\1\0B\2\2\0029\2\2\2\18\3\1\0B\2\2\1K\0\1\0\nsetup\vgopher\frequire\0" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/beto0607/.local/share/nvim/site/pack/packer/opt/gopher.nvim",
-    url = "https://github.com/olexsmir/gopher.nvim"
-  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -181,37 +179,21 @@ _G.packer_plugins = {
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
-  ["nvim-dap"] = {
-    loaded = true,
-    path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-dap",
-    url = "https://github.com/mfussenegger/nvim-dap"
-  },
-  ["nvim-dap-go"] = {
-    config = { "\27LJ\2\0028\0\2\4\0\3\0\a6\2\0\0'\3\1\0B\2\2\0029\2\2\2\18\3\1\0B\2\2\1K\0\1\0\nsetup\vdap-go\frequire\0" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/beto0607/.local/share/nvim/site/pack/packer/opt/nvim-dap-go",
-    url = "https://github.com/leoluz/nvim-dap-go"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
+    config = { "\27LJ\2\2þ\2\0\0\4\0\18\0\0256\0\0\0'\1\1\0B\0\2\0026\1\0\0'\2\2\0B\1\2\0029\1\3\0015\2\4\0005\3\5\0=\3\6\2B\1\2\0019\1\3\0005\2\b\0005\3\a\0=\3\t\0025\3\n\0=\3\v\0025\3\f\0=\3\r\0025\3\14\0=\3\15\0025\3\16\0=\3\17\2B\1\2\1K\0\1\0\21ensure_installed\1\f\0\0\15javascript\15typescript\blua\bvim\btsx\tyaml\tjson\thtml\bcss\tscss\vpython\14autopairs\1\0\1\venable\2\frainbow\1\0\2\18extended_mode\1\venable\2\vindent\1\0\1\venable\2\14highlight\1\0\0\1\0\1\venable\2\14filetypes\1\4\0\0\thtml\bxml\btsx\1\0\1\venable\2\nsetup\20nvim-ts-autotag\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-ts-autotag"] = {
-    config = { "\27LJ\2\2L\0\0\2\0\4\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0B\0\2\1K\0\1\0\1\0\1\venable\2\nsetup\20nvim-ts-autotag\frequire\0" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/beto0607/.local/share/nvim/site/pack/packer/opt/nvim-ts-autotag",
-    url = "https://github.com/windwp/nvim-ts-autotag",
-    wants = { "nvim-treesitter" }
+    loaded = true,
+    path = "/home/beto0607/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -295,17 +277,14 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Filetype lazy-loads
-time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType go ++once lua require("packer.load")({'nvim-dap-go', 'gopher.nvim'}, { ft = "go" }, _G.packer_plugins)]]
-time([[Defining lazy-load filetype autocommands]], false)
-  -- Event lazy-loads
-time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-ts-autotag'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
-time([[Defining lazy-load event autocommands]], false)
-vim.cmd("augroup END")
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\0025\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\2þ\2\0\0\4\0\18\0\0256\0\0\0'\1\1\0B\0\2\0026\1\0\0'\2\2\0B\1\2\0029\1\3\0015\2\4\0005\3\5\0=\3\6\2B\1\2\0019\1\3\0005\2\b\0005\3\a\0=\3\t\0025\3\n\0=\3\v\0025\3\f\0=\3\r\0025\3\14\0=\3\15\0025\3\16\0=\3\17\2B\1\2\1K\0\1\0\21ensure_installed\1\f\0\0\15javascript\15typescript\blua\bvim\btsx\tyaml\tjson\thtml\bcss\tscss\vpython\14autopairs\1\0\1\venable\2\frainbow\1\0\2\18extended_mode\1\venable\2\vindent\1\0\1\venable\2\14highlight\1\0\0\1\0\1\venable\2\14filetypes\1\4\0\0\thtml\bxml\btsx\1\0\1\venable\2\nsetup\20nvim-ts-autotag\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

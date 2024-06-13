@@ -4,48 +4,66 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+    use('stevearc/oil.nvim')
+    use('wbthomason/packer.nvim')
+    use('nvim-lua/plenary.nvim')
     use({
-        "stevearc/oil.nvim",
-    })
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
-    use 'nvim-lua/plenary.nvim'
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.3',
-        -- or                            , branch = '0.1.x',
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.6',
         requires = { { 'nvim-lua/plenary.nvim' } }
-    }
+    })
 
-    use { "catppuccin/nvim", as = "catppuccin" }
-
-    use { "mfussenegger/nvim-dap" }
-    use {
-        "olexsmir/gopher.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-        },
-        ft = "go",
-        config = function(_, opts)
-            require("gopher").setup(opts)
-        end,
-        build = function()
-            vim.cmd [[silent! GoInstallDeps]]
-        end
-    }
-    use {
-        "leoluz/nvim-dap-go",
-        ft = "go",
-        dependencies = "mfussenegger/nvim-dap",
-        config = function(_, opts)
-            require("dap-go").setup(opts)
-        end
-    }
-
+    use({ 'catppuccin/nvim', as = 'catppuccin' })
 
     use('christoomey/vim-tmux-navigator')
+    use { 'windwp/nvim-ts-autotag', }
+    use({
+        'nvim-treesitter/nvim-treesitter',
+        dependencies= { { 'windwp/nvim-autopairs' } },
+        run = ':TSUpdate',
+        config = function()
+            local treesitter = require("nvim-treesitter.configs")
 
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+            require('nvim-ts-autotag').setup({
+                enable = true,
+                filetypes = { "html", "xml", "tsx" },
+            })
+            -- configure treesitter
+            treesitter.setup({ -- enable syntax highlighting
+                highlight = {
+                    enable = true,
+                },
+                -- enable indentation
+                indent = { enable = true },
+                rainbow = {
+                    enable = true,
+                    extended_mode = false,
+                },
+                -- autotag = {
+                --     enable = true,
+                -- },
+                autopairs = {
+                    enable = true,
+                },
+
+                -- ensure these language parsers are installed
+                ensure_installed = {
+                    "javascript",
+                    "typescript",
+                    "lua",
+                    "vim",
+                    "tsx",
+                    "yaml",
+                    "json",
+                    "html",
+                    "css",
+                    "scss",
+                    "python"
+                },
+            })
+        end
+    }
+    )
     use('nvim-treesitter/playground')
 
 
@@ -53,13 +71,11 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
     use('lukas-reineke/indent-blankline.nvim')
     use('nvim-tree/nvim-web-devicons')
-    use({
-        'nvim-lualine/lualine.nvim',
-    })
+    use('nvim-lualine/lualine.nvim')
 
     use({
-        "williamboman/mason.nvim",
-        run = ":MasonUpdate"
+        'williamboman/mason.nvim',
+        run = ':MasonUpdate'
     })
 
     use {
@@ -87,25 +103,16 @@ return require('packer').startup(function(use)
 
     -- install without yarn or npm
     use { 'iamcco/markdown-preview.nvim' }
-    -- Auto pairs
+    --Auto pairs
     use {
-        "windwp/nvim-autopairs",
-        wants = "nvim-treesitter",
-        module = { "nvim-autopairs.completion.cmp", "nvim-autopairs" },
+        'windwp/nvim-autopairs',
+        wants = 'nvim-treesitter',
+        module = { 'nvim-autopairs.completion.cmp', 'nvim-autopairs' },
         config = function()
-            require("nvim-autopairs").setup {
+            require('nvim-autopairs').setup {
                 check_ts = true,
             }
         end
-    }
-    -- Auto tag
-    use {
-        "windwp/nvim-ts-autotag",
-        wants = "nvim-treesitter",
-        event = "InsertEnter",
-        config = function()
-            require("nvim-ts-autotag").setup { enable = true }
-        end,
     }
     use('f-person/git-blame.nvim')
     use('dart-lang/dart-vim-plugin')
@@ -113,4 +120,10 @@ return require('packer').startup(function(use)
     use('neovim/nvim-lspconfig')
     use('jose-elias-alvarez/null-ls.nvim')
     use('MunifTanjim/prettier.nvim')
+    use({
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    })
 end)
