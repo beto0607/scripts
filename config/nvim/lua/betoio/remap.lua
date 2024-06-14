@@ -63,3 +63,4 @@ vim.keymap.set("n", "gf", "<cmd>diffget //2<CR>");
 vim.keymap.set("n", "gj", "<cmd>diffget //3<CR>");
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
+vim.keymap.set('t', '<Esc>', "<C-\\><C-n>")
