@@ -1,6 +1,8 @@
 #!/bin/zsh
 
+exit 0
 REPO_PATH="./$(dirname $0)"
+
 
 # NVIM
 nvim_config="$REPO_PATH/nvim"
