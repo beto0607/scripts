@@ -40,7 +40,7 @@ require("oil").setup({
     -- Set to true to autosave buffers that are updated with LSP willRenameFiles
     -- Set to "unmodified" to only save unmodified buffers
     -- lsp_rename_autosave = false,
-    lsp_file_methods= {
+    lsp_file_methods = {
         autosave_changes = false
     },
     -- Constrain the cursor to the editable parts of the oil buffer
@@ -55,13 +55,11 @@ require("oil").setup({
     keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
-        ["<C-s>"] = "actions.select_vsplit",
-        ["<C-h>"] = "actions.select_split",
-        ["<C-t>"] = "actions.select_tab",
-        ["<C-v>"] = "actions.preview",
+        ["<C-s>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
+        ["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
+        ["<C-v>"] = { "actions.preview", opts = { vertical = true, split = "botright" } },
         ["<C-p>"] = false,
         ["<C-c>"] = "Actions.close",
-        ["<C-l>"] = "actions.refresh",
         ["-"] = "actions.parent",
         ["_"] = "actions.open_cwd",
         ["`"] = "actions.cd",
@@ -72,7 +70,7 @@ require("oil").setup({
         ["g\\"] = "actions.toggle_trash",
     },
     -- Set to false to disable all of the above keymaps
-    use_default_keymaps = true,
+    use_default_keymaps = false,
     view_options = {
         -- Show files and directories that start with "."
         show_hidden = true,
@@ -101,6 +99,8 @@ require("oil").setup({
         win_options = {
             winblend = 0,
         },
+        preview_split = "right",
+
         -- This is the config that will be passed to nvim_open_win.
         -- Change values here to customize the layout
         override = function(conf)
@@ -109,6 +109,7 @@ require("oil").setup({
     },
     -- Configuration for the actions floating preview window
     preview = {
+        preview_split = "right",
         -- Width dimensions can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
         -- min_width and max_width can be a single value or a list of mixed integer/float types.
         -- max_width = {100, 0.8} means "the lesser of 100 columns or 80% of total"
