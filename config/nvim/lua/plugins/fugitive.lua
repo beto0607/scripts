@@ -3,7 +3,7 @@ return {
     "tpope/vim-fugitive",
     event = "BufWinEnter",
     config = function()
-      vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+      vim.keymap.set("n", "<leader>gs", ":top Git<CR>")
 
       local betoio_fugitive = vim.api.nvim_create_augroup("ThePrimeagen_Fugitive", {})
 
