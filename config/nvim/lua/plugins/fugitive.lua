@@ -5,7 +5,7 @@ return {
     config = function()
       vim.keymap.set("n", "<leader>gs", ":top Git<CR>")
 
-      local betoio_fugitive = vim.api.nvim_create_augroup("ThePrimeagen_Fugitive", {})
+      local betoio_fugitive = vim.api.nvim_create_augroup("betoio_Fugitive", {})
 
       local autocmd = vim.api.nvim_create_autocmd
 
