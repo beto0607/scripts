@@ -78,7 +78,9 @@ source $PERSONAL_FOLDER/scripts/scripts/init.sh
 if [ -f "$PERSONAL_FOLDER/../secrets.sh" ]; then
     source $PERSONAL_FOLDER/../secrets.sh
 fi
-
+if [ -f "~/.secrets" ]; then
+    source ~/.secrets
+fi
 # Plugins
 #source /home/beto0607/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
