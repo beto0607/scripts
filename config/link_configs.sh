@@ -35,3 +35,11 @@ if [ ! -L ${zsh_config_path} ]; then
     echo "ZSH config doesn't exist"
     ln -s ${zsh_config} ${zsh_config_path}
 fi
+
+# # Kitty
+# kitty_config="$REPO_PATH/kitty"
+# kitty_config_path="$HOME/.config/kitty"
+# if [ ! -L ${kitty_config_path} ]; then
+#     echo "Kitty config doesn't exist"
+#     ln -s ${kitty_config} ${kitty_config_path}
+# fi
