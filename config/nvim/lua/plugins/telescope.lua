@@ -1,9 +1,7 @@
 return {
-
   {
     "nvim-telescope/telescope.nvim",
     keys = {
-      -- stylua: ignore
       {
         "<leader>pf",
         function()
@@ -22,15 +20,19 @@ return {
         "<leader>ps",
         function()
           local builtin = require("telescope.builtin")
-          builtin.grep_string()
+          builtin.grep_string({ reuse_win = true })
         end,
       },
       {
         "<leader>pg",
         function()
           local builtin = require("telescope.builtin")
-          builtin.live_grep()
+          builtin.live_grep({ reuse_win = true })
         end,
+      },
+      {
+        "<leader>,",
+        "$A,<Esc>",
       },
     },
     -- change some options
@@ -40,6 +42,9 @@ return {
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
         winblend = 0,
+        keymaps = {
+          ["n"] = {},
+        },
       },
       pickers = {
         live_grep = {
