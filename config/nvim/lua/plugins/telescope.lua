@@ -31,6 +31,10 @@ return {
         end,
       },
       {
+        "<leader>gs",
+        "<cmd>:top Git<CR>",
+      },
+      {
         "<leader>,",
         "$A,<Esc>",
       },
