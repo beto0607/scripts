@@ -75,11 +75,8 @@ export PATH="$SYSTEM_PATHS:$LANGUAGES_PATHS:$APPS_PATHS:$CUSTOM_PATHS:$PATH"
 source $PERSONAL_FOLDER/scripts/scripts/init.sh
 
 # Init Secrets
-if [ -f "$PERSONAL_FOLDER/../secrets.sh" ]; then
-    source $PERSONAL_FOLDER/../secrets.sh
-fi
-if [ -f "~/.secrets" ]; then
-    source ~/.secrets
+if [ -f "$HOME/.secrets" ]; then
+    source $HOME/.secrets
 fi
 # Plugins
 #source /home/beto0607/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
