@@ -3,6 +3,7 @@
 BANNERFLOW_PATH="$HOME/Bannerflow"
 export STUDIO_PATH="$BANNERFLOW_PATH/Studio"
 export REMOTE_INFRA_PATH="$BANNERFLOW_PATH/remote-compose-infra"
+export COMPOSE_INFRA_PATH="$BANNERFLOW_PATH/ComposeInfra"
 
 # STUDIO
 # -- app 
@@ -22,3 +23,7 @@ alias gateway_down_mac="cd $REMOTE_INFRA_PATH; docker compose down mac"
 
 # Utils
 alias code_studio="code $STUDIO_PATH"
+
+
+# MongoDB
+alias mongodb_up="cd $COMPOSE_INFRA_PATH; docker compose up -d mongodb"

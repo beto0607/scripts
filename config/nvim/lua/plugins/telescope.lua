@@ -6,14 +6,14 @@ return {
         "<leader>pf",
         function()
           local builtin = require("telescope.builtin")
-          builtin.find_files()
+          builtin.find_files({ reuse_win = true })
         end,
       },
       {
         "<C-p>",
         function()
           local builtin = require("telescope.builtin")
-          builtin.git_files({ show_untracked = true })
+          builtin.git_files({ show_untracked = true, reuse_win = true })
         end,
       },
       {
