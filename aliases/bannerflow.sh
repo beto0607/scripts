@@ -27,3 +27,6 @@ alias code_studio="code $STUDIO_PATH"
 
 # MongoDB
 alias mongodb_up="cd $COMPOSE_INFRA_PATH; docker compose up -d mongodb"
+
+# AzureStorage 
+alias storage_up="cd $COMPOSE_INFRA_PATH; docker compose up -d storage-emulator "
