@@ -35,4 +35,17 @@
     sshCommand = ssh -i ~/.ssh/beto0607
 
 [includeIf "gitdir:~/Bannerflow/"]
-    path = ~/.config/git/bf.gitconfig
+    path = ~/Personal/scripts/config/git/bf.gitconfig
+    [user]
+        name = Roberto Albanesi
+        email = roberto.albanesi@bannerflow.com
+        signingkey = ~/.ssh/bannerflow.pub
+
+    [commit]
+        gpgsign = true
+
+    [gpg]
+        format = ssh
+
+    [core]
+        sshCommand = ssh -i ~/.ssh/bannerflow
