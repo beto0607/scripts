@@ -32,7 +32,7 @@
     strategy = incremental
 
 [core]
-    sshCommand = ssh -i ~/.ssh/github_beto0607_rsa
+    sshCommand = ssh -i ~/.ssh/beto0607.
 
 [includeIf "gitdir:~/Bannerflow/"]
     path = ~/.config/git/bf.gitconfig
