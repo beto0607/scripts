@@ -36,16 +36,3 @@
 
 [includeIf "gitdir:~/Bannerflow/"]
     path = ~/Personal/scripts/config/git/bf.gitconfig
-    [user]
-        name = Roberto Albanesi
-        email = roberto.albanesi@bannerflow.com
-        signingkey = ~/.ssh/bannerflow.pub
-
-    [commit]
-        gpgsign = true
-
-    [gpg]
-        format = ssh
-
-    [core]
-        sshCommand = ssh -i ~/.ssh/bannerflow
