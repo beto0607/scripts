@@ -27,3 +27,6 @@ alias "xv=xclip -o"
 
 # Flush DNS
 alias flush_dns="sudo resolvectl flush-caches"
+
+# hosts
+alias edit_hosts="sudo vi /etc/hosts"
