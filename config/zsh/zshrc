@@ -31,8 +31,9 @@ export JAVA_HOME="/usr/lib/jvm/java-19-openjdk-amd64"
 
 # -- Go lang
 # export GO_LANG_HOME="$HOME/Apps/go/bin"
+export GO_BIN_PATH="/usr/local/go/bin"
 export GOPATH="$HOME/Personal/.gopath"
-GO_LANG_PATHS="$HOME/Apps/go/bin"
+GO_LANG_PATHS="$HOME/App/go/bin"
 
 # -- NPM
 NPM_PACKAGES="$HOME/.npm-packages"
@@ -43,7 +44,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-LANGUAGES_PATHS="$GO_LANG_PATHS:$NPM_PATHS:$ANDROID_PATHS:$PYTHON_PATHS"
+LANGUAGES_PATHS="$GO_BIN_PATH:$GO_LANG_PATHS:$NPM_PATHS:$ANDROID_PATHS:$PYTHON_PATHS"
 # ----------------------------------
 
 # Apps
@@ -54,7 +55,7 @@ export SPOTIFYD="$HOME/spotify/spotifyd/target/release/"
 export NVIM_PATH="$HOME/nvim"
 
 # -- K9s
-export K9S_PATH="$HOME/Apps/k9s/execs/"
+export K9S_PATH="$HOME/App/k9s/execs/"
 
 APPS_PATHS="$SPOTIFYD:$NVIM_PATH/bin:$K9S_PATH"
 # ----------------------------------
