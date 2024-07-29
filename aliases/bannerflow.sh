@@ -8,7 +8,7 @@ export COMPOSE_INFRA_PATH="$BANNERFLOW_PATH/ComposeInfra"
 # STUDIO
 # -- app 
 alias studio_start_dev="cd $STUDIO_PATH; npx nx run studio:serve:remote"
-alias studio_dev="npx nx run studio:server:remote"
+alias studio_dev="npx nx run studio:serve:remote"
 alias studio_build_scripts="cd $STUDIO_PATH; npm run build:scripts -- --watch"
 # -- acg
 alias acg_start_dev="cd $STUDIO_PATH; npx nx run acg:serve:development"
