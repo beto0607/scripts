@@ -6,23 +6,18 @@ if [ -z "${branchName}" ];  then
     exit 1
 fi
 
-if ! branchExists=$(git branch --list | grep -q "${branchName}")
-then
-    echo "New branch detected. Creating..."
-
-    if ! $(git branch -c "${branchName}" 2> /dev/null)
-    then
-        echo "Couldn't create new branch";
-        exit 1;
-    fi
-
-    echo "Branch created..."
-fi
-
 local repoName="$(git remote get-url origin | sed -r 's/^.*\/(.*)\.git$/\1/i')"
 
 local targetDir="../${repoName}-${branchName}"
-git worktree add ${targetDir} ${branchName}
+
+if ! branchExists=$(git branch --list | grep -q "${branchName}")
+then
+    echo "New branch detected. Creating..."
+    git worktree add --track -b ${branchName} ${targetDir}
+else
+    echo "Existing branch detected. Checking out..."
+    git worktree add ${targetDir} --checkout ${branchName}
+fi
 
 echo "New worktree created"
 
@@ -42,3 +37,5 @@ then
     echo "Rebuild NPM"
     npm rebuild
 fi
+
+tmux-sessionizer "${targetDir}"
