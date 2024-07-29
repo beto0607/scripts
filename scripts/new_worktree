@@ -35,3 +35,10 @@ fi
 
 echo "Changing directory to ${targetDir}"
 cd "${targetDir}"
+
+
+if [ -d "./node_modules" ]
+then
+    echo "Rebuild NPM"
+    npm rebuild
+fi
