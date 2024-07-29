@@ -19,9 +19,9 @@ then
     echo "Branch created..."
 fi
 
-local currentDirName="$(basename $(pwd))"
+local repoName="$(git remote get-url origin | sed -r 's/^.*\/(.*)\.git$/\1/i')"
 
-local targetDir="../${currentDirName}-${branchName}"
+local targetDir="../${repoName}-${branchName}"
 git worktree add ${targetDir} ${branchName}
 
 echo "New worktree created"
