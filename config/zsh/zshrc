@@ -57,6 +57,9 @@ export NVIM_PATH="$HOME/nvim"
 # -- K9s
 export K9S_PATH="$HOME/App/k9s/execs/"
 
+# -- Node
+export NODE_OPTIONS="--max_old_space_size=8192"
+
 APPS_PATHS="$SPOTIFYD:$NVIM_PATH/bin:$K9S_PATH"
 # ----------------------------------
 
@@ -66,6 +69,8 @@ export SCRIPTS_FOLDER="$PERSONAL_FOLDER/scripts"
 PERSONAL_PATHS="$SCRIPTS_FOLDER/scripts"
 
 CUSTOM_PATHS="$PERSONAL_PATHS"
+bindkey -s ^f "tmux-sessionizer\n"
+
 # ----------------------------------
 
 # ----------------------------------
