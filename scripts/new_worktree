@@ -1,0 +1,37 @@
+#!/bin/zsh
+
+local branchName="$1"
+if [ -z "${branchName}" ];  then
+    echo "No branch name"
+    exit 1
+fi
+
+if ! branchExists=$(git branch --list | grep -q "${branchName}")
+then
+    echo "New branch detected. Creating..."
+
+    if ! $(git branch -c "${branchName}" 2> /dev/null)
+    then
+        echo "Couldn't create new branch";
+        exit 1;
+    fi
+
+    echo "Branch created..."
+fi
+
+local currentDirName="$(basename $(pwd))"
+
+local targetDir="../${currentDirName}-${branchName}"
+git worktree add ${targetDir} ${branchName}
+
+echo "New worktree created"
+
+if [ -d "./node_modules" ]
+then
+    echo "'node_modules' detected, copying..."
+    cp -r ./node_modules ${targetDir}/node_modules
+    echo "'node_modules' copíed"
+fi
+
+echo "Changing directory to ${targetDir}"
+cd "${targetDir}"
