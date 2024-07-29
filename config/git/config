@@ -20,6 +20,10 @@
 	spop = stash pop
 	sl = stash list
 	compare = ! ~/Personal/scripts/scripts/git/open_compare 
+    wta = worktree add
+    wtl = worktree list
+    wtr = worktree remove
+    wtp = worktree prune
 
 [core]
 	editor = nvim
