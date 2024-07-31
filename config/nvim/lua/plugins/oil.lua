@@ -17,6 +17,8 @@ return {
       ["g."] = "actions.toggle_hidden",
       ["g\\"] = "actions.toggle_trash",
     },
+    default_file_explorer = true,
+
     -- Set to false to disable all of the above keymaps
     use_default_keymaps = false,
     view_options = {
