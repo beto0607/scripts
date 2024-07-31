@@ -10,7 +10,7 @@ local repoName="$(git remote get-url origin | sed -r 's/^.*\/(.*)\.git$/\1/i')"
 
 local targetDir="../${repoName}-${branchName}"
 
-if ! branchExists=$(git branch --list | grep -q "${branchName}")
+if ! branchExists=$(git branch --list -a | grep -q "${branchName}")
 then
     echo "New branch detected. Creating..."
     git worktree add --track -b ${branchName} ${targetDir}
