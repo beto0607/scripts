@@ -24,7 +24,8 @@ echo "New worktree created"
 if [ -d "./node_modules" ]
 then
     echo "'node_modules' detected, copying..."
-    cp -r ./node_modules ${targetDir}/node_modules
+    # cp -r ./node_modules ${targetDir}/node_modules
+    ln -s ../${repoName}/node_modules ${targetDir}/node_modules
     echo "'node_modules' copíed"
 fi
 
