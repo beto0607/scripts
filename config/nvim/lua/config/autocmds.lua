@@ -47,6 +47,9 @@ autocmd("LspAttach", {
     vim.keymap.set("n", "<leader>o", function()
       vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } }, apply = true })
     end)
+    vim.keymap.set("n", "<leader>p", function()
+      vim.lsp.buf.code_action({ context = { only = { "source.addMissingImports.ts" } }, apply = true })
+    end)
 
     vim.keymap.set("n", "<leader>f", function()
       vim.lsp.buf.format({ async = true })

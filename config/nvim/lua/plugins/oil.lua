@@ -19,6 +19,8 @@ return {
     },
     default_file_explorer = true,
 
+    cleanup_delay_ms = false,
+
     -- Set to false to disable all of the above keymaps
     use_default_keymaps = false,
     view_options = {
