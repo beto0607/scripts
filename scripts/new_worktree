@@ -25,7 +25,6 @@ fi
 
 echo "New worktree created"
 
-
 echo "Changing directory to ${targetDir}"
 cd "${targetDir}"
 
@@ -36,5 +35,4 @@ then
     echo "'npm ci' copíed"
 fi
 
-
-tmux-sessionizer "${targetDir}"
+./tmux-sessionizer "$(pwd)/${targetDir}"
