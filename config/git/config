@@ -24,6 +24,7 @@
     wtl = worktree list
     wtr = worktree remove
     wtp = worktree prune
+    nwt = "!new_worktree"
 
 [core]
 	editor = nvim
