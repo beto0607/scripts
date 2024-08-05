@@ -3,8 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Bannerflow ~/Personal -mindepth 1 -maxdepth 1 -type d -not -name ".*" | fzf)
-    # selected=$(find ~/Bannerflow ~/Personal -mindepth 1 -maxdepth 2 -name '.git' | sed 's/\.git$//' | fzf)
+    selected=$(find ~/Bannerflow ~/Personal -mindepth 1 -maxdepth 1 -type d -not -name ".*" | fzf --bind 'ctrl-n:become:echo {}-2')
 fi
 
 if [[ -z $selected ]]; then

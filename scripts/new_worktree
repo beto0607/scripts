@@ -2,7 +2,7 @@
 
 local branchName="$1"
 if [ -z "${branchName}" ];  then
-    branchName=$(git branch -al --format='%(refname:lstrip=-1)' | grep -v -e 'HEAD\|main' | sort | uniq | fzf)
+    branchName=$(git branch -al --format='%(refname:lstrip=-1)' | grep -v -e 'HEAD\|main' | sort | uniq | fzf --bind 'ctrl-n:print-query')
 fi
 
 if [ -z "${branchName}" ];  then
