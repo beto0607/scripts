@@ -35,4 +35,4 @@ then
     echo "'npm ci' copíed"
 fi
 
-./tmux-sessionizer "$(pwd)/${targetDir}"
+tmux-sessionizer "$(pwd)/${targetDir}"
