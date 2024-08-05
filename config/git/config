@@ -25,6 +25,8 @@
     wtr = worktree remove
     wtp = worktree prune
     nwt = "!new_worktree"
+    webbr = "!gh repo view --web --branch $(git branch --show-current) > /dev/null"
+    webpr = "!gh pr view --web > /dev/null"
 
 [core]
 	editor = nvim
