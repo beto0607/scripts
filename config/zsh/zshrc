@@ -94,4 +94,6 @@ fi
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-source /home/beto0607/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /home/beto0607/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
