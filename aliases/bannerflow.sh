@@ -7,6 +7,7 @@ export COMPOSE_INFRA_PATH="$BANNERFLOW_PATH/ComposeInfra"
 
 # STUDIO
 # -- app 
+alias kill_studio="sudo fuser -k 3000/tcp"
 alias studio_start_dev="cd $STUDIO_PATH; npx nx run studio:serve:remote"
 alias studio_dev="npx nx run studio:serve:remote"
 alias studio_build_scripts="cd $STUDIO_PATH; npm run build:scripts -- --watch"
