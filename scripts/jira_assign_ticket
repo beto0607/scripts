@@ -1,0 +1,26 @@
+#!/bin/zsh
+
+if [[ -z $1 ]]; then
+    echo "No ticket provided"
+    exit 1
+fi
+
+local jiraTicket=$1
+
+local jiraUrl="https://bannerflow.atlassian.net/rest/api/3/issue/$jiraTicket/assignee"
+
+local data="{\"accountId\":\"$JIRA_ACCOUNT_ID\"}"
+
+local responseCode=$(curl --request PUT \
+    $jiraUrl \
+    --user $JIRA_USER:$JIRA_TOKEN \
+    --header 'Content-Type: application/json' \
+    --header 'Accept: application/json' \
+    --write-out %{http_code} --silent \
+    --data $data )
+
+if [[ ${responseCode:0:1} == "2" ]]; then
+    echo "oky doky"
+else
+    echo "Something went wrong D:"
+fi
