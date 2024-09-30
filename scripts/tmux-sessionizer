@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 
+extraFolder=( "~/.config/nvim" "~/.config/git" )
+
 if [[ $# -eq 1 ]]; then
     selected=$1
     selectedPath=$1
 else
-    selected=$(find ~/Bannerflow ~/Personal -mindepth 1 -maxdepth 1 -type d -not -name ".*" | fzf --bind 'ctrl-n:become:echo {}-extra')
+    findResult=$(find ~/Bannerflow ~/Personal -mindepth 0 -maxdepth 1 -type d -not -name ".*")
+    readarray -t files <<< "$findResult"
+    files+=(${extraFolder[*]})
+    IFS=$'\n'
+    selected=$(echo "${files[*]}" | fzf --bind 'ctrl-n:become:echo {}-extra'):
     selectedPath="${selected%-extra}"
 fi
 

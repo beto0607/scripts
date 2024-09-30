@@ -3,6 +3,14 @@ return {
   opts = {
     -- make sure mason installs the server
     servers = {
+      html = {
+        configurationSection = { "html", "css", "javascript" },
+        embeddedLanguages = {
+          css = true,
+          javascript = true,
+        },
+        provideFormatter = true,
+      },
       tsserver = {
         enabled = false,
       },
