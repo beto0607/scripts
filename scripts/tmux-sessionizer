@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-extraFolder=( "~/.config/nvim" "~/.config/git" )
+extraFolder=( "/home/beto0607/.config/nvim" "/home/beto0607/.config/git" )
 
 if [[ $# -eq 1 ]]; then
     selected=$1
@@ -10,7 +10,7 @@ else
     readarray -t files <<< "$findResult"
     files+=(${extraFolder[*]})
     IFS=$'\n'
-    selected=$(echo "${files[*]}" | fzf --bind 'ctrl-n:become:echo {}-extra'):
+    selected=$(echo "${files[*]}" | fzf --bind 'ctrl-n:become:echo {}-extra')
     selectedPath="${selected%-extra}"
 fi
 

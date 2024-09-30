@@ -57,6 +57,9 @@ export NVIM_PATH="$HOME/nvim"
 # -- K9s
 export K9S_PATH="$HOME/App/k9s/execs/:"
 
+# -- NeoVim
+export K9S_PATH="$HOME/App/Nvim/:"
+
 # -- Node
 export NODE_OPTIONS="--max_old_space_size=8192"
 
