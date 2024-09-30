@@ -31,3 +31,6 @@ alias flush_dns="sudo resolvectl flush-caches"
 
 # hosts
 alias edit_hosts="sudo vi /etc/hosts"
+
+# PNPM
+alias pnpx="pnpm exec"

@@ -30,9 +30,9 @@ cd "${targetDir}"
 
 if [ -d "../${repoName}/node_modules" ]
 then
-    echo "'node_modules' detected, running npm install..."
-    npm install > /dev/null 2> /dev/null
-    echo "'npm ci' copíed"
+    echo "'node_modules' detected, running pnpm install..."
+    pnpm i > /dev/null 2> /dev/null
+    echo "'pnpm i' done"
 fi
 
 tmux-sessionizer "$(pwd)/${targetDir}"
