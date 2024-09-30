@@ -32,6 +32,7 @@ export JAVA_HOME="/usr/lib/jvm/java-19-openjdk-amd64"
 # -- Go lang
 # export GO_LANG_HOME="$HOME/Apps/go/bin"
 export GO_BIN_PATH="/usr/local/go/bin"
+export GOBIN="$HOME/App/go/bin"
 export GOPATH="$HOME/Personal/.gopath"
 GO_LANG_PATHS="$HOME/App/go/bin"
 
@@ -44,7 +45,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-LANGUAGES_PATHS="$GO_BIN_PATH:$GO_LANG_PATHS:$NPM_PATHS:$ANDROID_PATHS:$PYTHON_PATHS"
+# -- QMK
+export QMK_HOME="$HOME/Personal/keyboards/qmk_firmware"
+
+LANGUAGES_PATHS="$GO_BIN_PATH:$GOBIN:$GO_LANG_PATHS:$NPM_PATHS:$ANDROID_PATHS:$PYTHON_PATHS"
 # ----------------------------------
 
 # Apps
