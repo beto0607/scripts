@@ -31,8 +31,8 @@ return {
       table.insert(
         opts.adapters,
         require("neotest-jest")({
-          jestCommand = "pnpx jest run",
-          jestConfigFile = "custom.jest.config.ts",
+          jestCommand = "pnpm exec jest run",
+          -- jestConfigFile = "custom.jest.config.ts",
           env = { CI = true },
           cwd = function()
             return vim.fn.getcwd()
