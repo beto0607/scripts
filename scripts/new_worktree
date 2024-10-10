@@ -28,11 +28,18 @@ echo "New worktree created"
 echo "Changing directory to ${targetDir}"
 cd "${targetDir}"
 
-if [ -d "../${repoName}/node_modules" ]
+if [ -f "../${repoName}/pnpm-lock.yaml" ]
 then
-    echo "'node_modules' detected, running pnpm install..."
+    echo "'pnpm-lock.yamle' detected, running pnpm install..."
     pnpm i > /dev/null 2> /dev/null
     echo "'pnpm i' done"
+fi
+
+if [ -f "../${repoName}/package-lock.json" ]
+then
+    echo "'package-lock.json' detected, running npm install..."
+    npm i > /dev/null 2> /dev/null
+    echo "'npm i' done"
 fi
 
 tmux-sessionizer "$(pwd)/${targetDir}"

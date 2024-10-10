@@ -53,21 +53,21 @@ LANGUAGES_PATHS="$GO_BIN_PATH:$GOBIN:$GO_LANG_PATHS:$NPM_PATHS:$ANDROID_PATHS:$P
 
 # Apps
 # -- SpotifyD
-export SPOTIFYD="$HOME/spotify/spotifyd/target/release/"
-
-# -- Nvim
-export NVIM_PATH="$HOME/nvim"
+export SPOTIFYD="$HOME/spotify/spotifyd/target/release"
 
 # -- K9s
-export K9S_PATH="$HOME/App/k9s/execs/:"
+export K9S_PATH="$HOME/App/k9s/execs"
+
+# -- Kitty
+export KITTY_PATH="$HOME/.local/kitty.app/bin"
 
 # -- NeoVim
-export K9S_PATH="$HOME/App/Nvim/:"
+export NVIM_PATH="$HOME/App/Nvim"
 
 # -- Node
 export NODE_OPTIONS="--max_old_space_size=8192"
 
-APPS_PATHS="$SPOTIFYD:$NVIM_PATH/bin:$K9S_PATH"
+APPS_PATHS="$SPOTIFYD:$NVIM_PATH:$K9S_PATH:$KITTY_PATH"
 # ----------------------------------
 
 # -- custom scripts
