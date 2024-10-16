@@ -34,3 +34,7 @@ alias edit_hosts="sudo vi /etc/hosts"
 
 # PNPM
 alias pnpx="pnpm exec"
+
+# Flameshot
+alias flameshot="~/App/Flameshot/Flameshot-12.1.0.x86_64.AppImage"
+alias flameshot_gui="flameshot gui"

@@ -51,6 +51,8 @@ vim.keymap.set("n", "<leader>9", "9<C-w><C-w>")
 vim.keymap.set("n", "<leader>,", "$A,<Esc>")
 vim.keymap.set("n", "<leader>;", "$A;<Esc>")
 
+vim.keymap.set("n", "<leader>nn", "<cmd>NoiceDismiss<cr>")
+
 vim.keymap.set("n", "<leader>nv", "<cmd>Navbuddy<cr>")
 
 vim.keymap.set("n", "gf", "<cmd>diffget //2<CR>")
