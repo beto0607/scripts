@@ -36,6 +36,9 @@ export GOBIN="$HOME/App/go/bin"
 export GOPATH="$HOME/Personal/.gopath"
 GO_LANG_PATHS="$HOME/App/go/bin"
 
+# -- Rust
+. "$HOME/.cargo/env"
+
 # -- NPM
 NPM_PACKAGES="$HOME/.npm-packages"
 NPM_PATHS="$NPM_PACKAGES/bin"
