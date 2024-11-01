@@ -67,10 +67,13 @@ export KITTY_PATH="$HOME/.local/kitty.app/bin"
 # -- NeoVim
 export NVIM_PATH="$HOME/App/Nvim"
 
+# -- Gitmux
+export GITMUX_PATH="$HOME/App/gitmux"
+
 # -- Node
 export NODE_OPTIONS="--max_old_space_size=8192"
 
-APPS_PATHS="$SPOTIFYD:$NVIM_PATH:$K9S_PATH:$KITTY_PATH"
+APPS_PATHS="$SPOTIFYD:$NVIM_PATH:$K9S_PATH:$KITTY_PATH:$GITMUX_PATH"
 # ----------------------------------
 
 # -- custom scripts

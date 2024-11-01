@@ -36,6 +36,14 @@ if [ ! -L ${zsh_config_path} ]; then
     ln -s ${zsh_config} ${zsh_config_path}
 fi
 
+# Gitmux
+gitmux_config="$REPO_PATH/gitmux/gitmux.conf"
+gitmux_config_path="$HOME/.gitmux.conf"
+if [ ! -L ${gitmux_config_path} ]; then
+    echo "Gitmux config doesn't exist"
+    ln -s ${gitmux_config} ${gitmux_config_path}
+fi
+
 # # Kitty
 # kitty_config="$REPO_PATH/kitty"
 # kitty_config_path="$HOME/.config/kitty"
