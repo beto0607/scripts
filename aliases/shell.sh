@@ -38,3 +38,10 @@ alias pnpx="pnpm exec"
 # Flameshot
 alias flameshot="~/App/Flameshot/Flameshot-12.1.0.x86_64.AppImage"
 alias flameshot_gui="flameshot gui"
+
+# Kanata
+alias enable_kanata="systemctl --user enable kanata.service"
+alias disable_kanata="systemctl --user disable kanata.service"
+alias stop_kanata="systemctl --user stop kanata.service"
+alias start_kanata="systemctl --user start kanata.service"
+

@@ -73,7 +73,10 @@ export GITMUX_PATH="$HOME/App/gitmux"
 # -- Node
 export NODE_OPTIONS="--max_old_space_size=8192"
 
-APPS_PATHS="$SPOTIFYD:$NVIM_PATH:$K9S_PATH:$KITTY_PATH:$GITMUX_PATH"
+# -- Kubectl
+export KUBECTL_PATH="$HOME/App/Kubectl"
+
+APPS_PATHS="$SPOTIFYD:$NVIM_PATH:$K9S_PATH:$KITTY_PATH:$GITMUX_PATH:$KUBECTL_PATH"
 # ----------------------------------
 
 # -- custom scripts
