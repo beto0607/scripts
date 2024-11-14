@@ -29,7 +29,7 @@
     webpr = "!gh pr view --web > /dev/null"
 
 [core]
-	editor = nvim
+	editor = /home/beto0607/App/Nvim/nvim.appimage
 
 [init]
 	defaultBranch = main
