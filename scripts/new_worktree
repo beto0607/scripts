@@ -30,7 +30,7 @@ cd "${targetDir}"
 
 if [ -f "../${repoName}/pnpm-lock.yaml" ]
 then
-    echo "'pnpm-lock.yamle' detected, running pnpm install..."
+    echo "'pnpm-lock.yaml' detected, running pnpm install..."
     pnpm i > /dev/null 2> /dev/null
     echo "'pnpm i' done"
 fi
