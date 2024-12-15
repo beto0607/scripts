@@ -1,16 +1,16 @@
 #!/bin/zsh
 
 
-REPO_PATH="./$(dirname $0)"
+REPO_PATH="/home/beto0607/Personal/scripts/config"
 
 
 # NVIM
-#nvim_config="$REPO_PATH/nvim"
-#nvim_config_path="$HOME/.config/nvim"
-#if [ ! -L ${nvim_config_path} ]; then
-#    echo "NVIM config doesn't exist"
-#    ln -s ${nvim_config} ${nvim_config_path}
-#fi
+nvim_config="$REPO_PATH/nvim"
+nvim_config_path="$HOME/.config/nvim"
+if [ ! -L ${nvim_config_path} ]; then
+   echo "NVIM config doesn't exist"
+   ln -s ${nvim_config} ${nvim_config_path}
+fi
 
 # TMUX
 tmux_config="$REPO_PATH/tmux"
