@@ -34,6 +34,7 @@ return {
           "vim",
           "yaml",
           "angular",
+          "zig",
         },
 
         sync_install = false,
