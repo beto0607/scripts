@@ -41,5 +41,9 @@
 [core]
     sshCommand = ssh -i ~/.ssh/beto0607
 
+[pull]
+	rebase = true
+
 [includeIf "gitdir:~/Bannerflow/"]
     path = ~/.config/git/bf.gitconfig
+
