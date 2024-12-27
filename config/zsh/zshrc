@@ -82,7 +82,10 @@ export NODE_OPTIONS="--max_old_space_size=8192"
 # -- Kubectl
 export KUBECTL_PATH="$HOME/App/Kubectl"
 
-APPS_PATHS="$SPOTIFYD:$NVIM_PATH:$K9S_PATH:$KITTY_PATH:$GITMUX_PATH:$KUBECTL_PATH"
+# -- Postman
+export POSTMAN_PATH="$HOME/App/Postman"
+
+APPS_PATHS="$SPOTIFYD:$NVIM_PATH:$K9S_PATH:$KITTY_PATH:$GITMUX_PATH:$KUBECTL_PATH:$POSTMAN_PATH"
 # ----------------------------------
 
 # -- custom scripts

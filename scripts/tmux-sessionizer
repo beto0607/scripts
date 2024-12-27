@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-extraFolder=("/home/beto0607/.config/nvim" "/home/beto0607/.config/git" "/home/beto0607/Downloads")
+extraFolder=("/home/beto0607/.config/nvim" "/home/beto0607/.config/git" "/home/beto0607/Downloads" "/home/beto0607/App")
 
 if [[ $# -eq 1 ]]; then
     selected=$1
