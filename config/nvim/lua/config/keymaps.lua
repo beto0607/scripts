@@ -61,5 +61,7 @@ vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
+-- micropython
+vim.keymap.set("n", "<leader>mr", require("micropython_nvim").run)
 -- Undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
