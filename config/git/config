@@ -47,3 +47,6 @@
 [includeIf "gitdir:~/Bannerflow/"]
     path = ~/.config/git/bf.gitconfig
 
+[includeIf "gitdir:~/Boemiz/"]
+    path = ~/.config/git/boemiz.gitconfig
+
