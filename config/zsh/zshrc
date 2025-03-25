@@ -22,15 +22,16 @@ export PYENV_ROOT="$HOME/.pyenv"
 PYTHON_PATHS="$PYENV_ROOT/bin"
 
 # -- Android/Flutter/Java
-export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
-export ANDROID_HOME="$HOME/Android/Sdk"
-export ANDROID_HOME="$HOME/Android/Sdk"
+export ANDROID_SDK_ROOT="$HOME/App/Android/Sdk"
+export ANDROID_HOME="$HOME/App/Android/Sdk"
+export ANDROID_HOME="$HOME/App/Android/Sdk"
 export ANDROID_AVD_HOME="$HOME/.config/.android/avd/"
-export ANDROID_STUDIO="$HOME/Android/android-studio"
-export FLUTTER_PATH="$HOME/Flutter/bin"
+export ANDROID_STUDIO="$HOME/App/Android/android-studio"
+export FLUTTER_PATH="$HOME/App/Flutter/bin"
 export ANDROID_TOOLS="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/cmdline-tools/latest/bin"
 ANDROID_PATHS="$ANDROID_TOOLS"
-export JAVA_HOME="/usr/lib/jvm/default-java"
+# export JAVA_HOME="/usr/lib/jvm/default-java"
+export JAVA_HOME="/usr/lib/jvm/jdk-24-oracle-x64"
 
 # -- Go lang
 # export GO_LANG_HOME="$HOME/Apps/go/bin"
@@ -135,3 +136,6 @@ source /home/beto0607/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Load Angular CLI autocompletion.
 # source <(ng completion script)
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
