@@ -20,6 +20,7 @@
 	spop = stash pop
 	sl = stash list
 	compare = ! ~/Personal/scripts/scripts/git/open_compare 
+    delete-local-merged = "!git fetch && git branch --merged | egrep -v 'master|dev|main|staging'  | xargs git branch -d"
     wta = worktree add
     wtl = worktree list
     wtr = worktree remove
