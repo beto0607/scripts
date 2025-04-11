@@ -3,6 +3,8 @@ return {
   opts = {
     -- make sure mason installs the server
     servers = {
+      dartls = {},
+      phpactor = {},
       html = {
         configurationSection = { "html", "css", "javascript" },
         embeddedLanguages = {
