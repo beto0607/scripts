@@ -25,6 +25,7 @@
     wtr = worktree remove
     wtp = worktree prune
     nwt = "!new_worktree"
+    wtclear = ! ~/Personal/scripts/scripts/git/clear_worktrees
     webbr = "!gh repo view --web --branch $(git branch --show-current) > /dev/null"
     webpr = "!gh pr view --web > /dev/null"
 

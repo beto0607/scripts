@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+worktrees=("${(@f)$(git worktree list --porcelain | grep 'worktree' | sed -E 's/worktree (\S+)$/\1/')}")
+
+IFS=$'\n' worktree_array=($worktrees)
+
+for wt_path in "${worktree_array[@]}"; do
+    if ! git worktree remove "$wt_path"; then
+        echo "Failed to remove worktree at $wt_path, continuing..."
+    else
+        echo "Successfully removed worktree at $wt_path"
+    fi
+done
