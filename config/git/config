@@ -1,25 +1,25 @@
 [user]
-	email = beto0607@gmail.com
-	name = Roberto Albanesi
+    email = beto0607@gmail.com
+    name = Roberto Albanesi
 
 [alias]
-	s = status
-	co = checkout
-	ps = push
-	psf = push --force
-	psu = push -u origin HEAD
-	psfu = push -u origin HEAD --force
-	pl = pull
-	cm = commit -m
-	cmn = commit --no-verify -m
-	cma = commit -am
-	aa = add --all
-	rehard = reset --hard HEAD~1
-	resoft = reset --soft HEAD~1
-	spush = stash push
-	spop = stash pop
-	sl = stash list
-	compare = ! ~/Personal/scripts/scripts/git/open_compare 
+    s = status
+    co = checkout
+    ps = push
+    psf = push --force
+    psu = push -u origin HEAD
+    psfu = push -u origin HEAD --force
+    pl = pull
+    cm = commit -m
+    cmn = commit --no-verify -m
+    cma = commit -am
+    aa = add --all
+    rehard = reset --hard HEAD~1
+    resoft = reset --soft HEAD~1
+    spush = stash push
+    spop = stash pop
+    sl = stash list
+    compare = ! ~/Personal/scripts/scripts/git/open_compare 
     delete-local-merged = "!git fetch && git branch --merged | egrep -v 'master|dev|main|staging'  | xargs git branch -d"
     wta = worktree add
     wtl = worktree list
@@ -31,10 +31,10 @@
     webpr = "!gh pr view --web > /dev/null"
 
 [core]
-	editor = /home/beto0607/App/Nvim/nvim.appimage
+    editor = /home/beto0607/App/Nvim/nvim.appimage
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [maintenance]
     auto = false
@@ -44,10 +44,16 @@
     sshCommand = ssh -i ~/.ssh/beto0607
 
 [pull]
-	rebase = true
+    rebase = true
 
 [rerere]
     enabled = true
+
+[gpg]
+    format = ssh
+
+[url "git@github.com:beto0607/"]
+  insteadOf = beto0607:
 
 [includeIf "gitdir:~/Bannerflow/"]
     path = ~/.config/git/bf.gitconfig

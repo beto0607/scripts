@@ -3,6 +3,9 @@
     email = roberto.albanesi@bannerflow.com
     signingkey = ~/.ssh/bannerflow.pub
 
+[url "git@github.com:nordicfactory/"]
+    insteadOf = bf:
+
 [commit]
     gpgsign = true
 

@@ -142,7 +142,7 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-source /home/beto0607/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # Load Angular CLI autocompletion.

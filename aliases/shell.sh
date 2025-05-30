@@ -12,7 +12,7 @@ alias :qa="exit"
 
 # NVIM
 alias nvim_config="cd ~/.config/nvim/; nvim ."
-alias nvim="~/App/Nvim/nvim.appimage"
+#alias nvim="~/App/Nvim/nvim.appimage"
 
 # TMUX
 alias tmux_config="cd ~/.config/tmux/; nvim ."
