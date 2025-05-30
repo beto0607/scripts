@@ -44,6 +44,15 @@ if [ ! -L ${gitmux_config_path} ]; then
     ln -s ${gitmux_config} ${gitmux_config_path}
 fi
 
+# Alacritty
+alacritty_config="$REPO_PATH/alacritty/alacritty.toml"
+alacritty_config_path="$HOME/.config/alacritty/alacritty.toml"
+if [ ! -L ${alacritty_config_path} ]; then
+    echo "Alacritty config doesn't exist"
+    mkdir -p "$HOME/.config/alacritty"
+    ln -s ${alacritty_config} ${alacritty_config_path}
+fi
+
 # # Kitty
 # kitty_config="$REPO_PATH/kitty"
 # kitty_config_path="$HOME/.config/kitty"
