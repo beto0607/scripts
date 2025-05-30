@@ -21,15 +21,19 @@ SYSTEM_PATHS="$LOCAL_FOLDER:$LOCAL_FOLDER/bin"
 export PYENV_ROOT="$HOME/.pyenv"
 PYTHON_PATHS="$PYENV_ROOT/bin"
 
+# -- Dart
+export DART_PATH="$HOME/.pub-cache/bin"
+
 # -- Android/Flutter/Java
 export ANDROID_SDK_ROOT="$HOME/App/Android/Sdk"
 export ANDROID_HOME="$HOME/App/Android/Sdk"
-export ANDROID_HOME="$HOME/App/Android/Sdk"
+export ANDROID_EMULARTOR_HOME="$HOME/App/Android/Sdk/emulator"
 export ANDROID_AVD_HOME="$HOME/.config/.android/avd/"
 export ANDROID_STUDIO="$HOME/App/Android/android-studio"
 export FLUTTER_PATH="$HOME/App/flutter/bin"
+
 export ANDROID_TOOLS="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/cmdline-tools/latest/bin"
-ANDROID_PATHS="$ANDROID_TOOLS:$FLUTTER_PATH"
+ANDROID_PATHS="$ANDROID_TOOLS:$FLUTTER_PATH:$ANDROID_EMULARTOR_HOME"
 # export JAVA_HOME="/usr/lib/jvm/default-java"
 # export JAVA_HOME="/usr/lib/jvm/jdk-24-oracle-x64"
 # export JAVA_HOME="/usr/lib/jvm/jdk-11.0.25-oracle-x64"
@@ -65,7 +69,7 @@ export NVM_DIR="$HOME/.nvm"
 # -- QMK
 export QMK_HOME="$HOME/Personal/keyboards/qmk_firmware"
 
-LANGUAGES_PATHS="$GO_BIN_PATH:$GOBIN:$GO_LANG_PATHS:$NPM_PATHS:$ANDROID_PATHS:$PYTHON_PATHS:$ZIG_PATH:$LARAVEL_ROOT:$ODIN_PATH"
+LANGUAGES_PATHS="$GO_BIN_PATH:$GOBIN:$GO_LANG_PATHS:$NPM_PATHS:$ANDROID_PATHS:$PYTHON_PATHS:$ZIG_PATH:$LARAVEL_ROOT:$ODIN_PATH:$DART_PATH"
 # ----------------------------------
 
 # Apps

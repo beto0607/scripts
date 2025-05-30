@@ -110,5 +110,25 @@ return {
         program = "./${relativeFileDirname}",
       },
     }
+    dap.adapters.lldb = {
+      type = "server",
+      port = "${port}",
+      executable = {
+        command = "lldb",
+        args = { "--port", "${port}" },
+      },
+    }
+    -- setup a debugger config for zig projects
+    dap.configurations.zig = {
+      {
+        name = "Launch",
+        type = "lldb",
+        request = "launch",
+        program = "${workspaceFolder}/zig-out/bin/${workspaceFolderBasename}",
+        cwd = "${workspaceFolder}",
+        stopOnEntry = false,
+        args = {},
+      },
+    }
   end,
 }
