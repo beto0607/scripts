@@ -46,8 +46,10 @@ export GOPATH="$HOME/Personal/.gopath"
 GO_LANG_PATHS="$HOME/App/go/bin"
 
 # -- Rust
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
+# -- dotnet/.net
+export DOTNET_TOOLS_PATH="$HOME/.dotnet/tools"
 # -- Zig
 export ZIG_PATH="$HOME/App/Zig"
 
@@ -69,7 +71,7 @@ export NVM_DIR="$HOME/.nvm"
 # -- QMK
 export QMK_HOME="$HOME/Personal/keyboards/qmk_firmware"
 
-LANGUAGES_PATHS="$GO_BIN_PATH:$GOBIN:$GO_LANG_PATHS:$NPM_PATHS:$ANDROID_PATHS:$PYTHON_PATHS:$ZIG_PATH:$LARAVEL_ROOT:$ODIN_PATH:$DART_PATH"
+LANGUAGES_PATHS="$GO_BIN_PATH:$GOBIN:$GO_LANG_PATHS:$NPM_PATHS:$ANDROID_PATHS:$PYTHON_PATHS:$ZIG_PATH:$LARAVEL_ROOT:$ODIN_PATH:$DART_PATH:$DOTNET_TOOLS_PATH"
 # ----------------------------------
 
 # Apps
