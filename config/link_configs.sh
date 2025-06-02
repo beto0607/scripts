@@ -60,3 +60,20 @@ fi
 #     echo "Kitty config doesn't exist"
 #     ln -s ${kitty_config} ${kitty_config_path}
 # fi
+
+# Sway
+sway_config="$REPO_PATH/sway/"
+sway_config_path="$HOME/.config/sway"
+if [ ! -L ${sway_config_path} ]; then
+    echo "Sway config doesn't exist"
+    ln -s ${sway_config} ${sway_config_path}
+fi
+
+# Waybar
+waybar_config="$REPO_PATH/waybar/"
+waybar_config_path="$HOME/.config/waybar"
+if [ ! -L ${waybar_config_path} ]; then
+    echo "Waybar config doesn't exist"
+    ln -s ${waybar_config} ${waybar_config_path}
+fi
+

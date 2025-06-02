@@ -1,0 +1,135 @@
+@import "macchiato.css";
+
+* {
+    font-family: Mononoki Nerd Font;
+    font-size: 16px;
+    min-height: 0;
+}
+
+#waybar {
+    background: transparent;
+    color: @text;
+    margin: 5px 5px;
+}
+
+#workspaces {
+    border-radius: 1rem;
+    margin: 5px;
+    background-color: @surface0;
+    margin-left: 1rem;
+}
+
+#workspaces button {
+    color: @lavender;
+    border-radius: 1rem;
+    padding: 0.4rem;
+}
+
+#workspaces button.focused{
+    color: @sky;
+    background-color: @surface1;
+    border-radius: 1rem;
+}
+
+#workspaces button:hover {
+    background-color: @surface1;
+    color: @sapphire;
+    border-radius: 1rem;
+}
+
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#cpu,
+#memory,
+#network,
+#custom-lock,
+#custom-github,
+#custom-weather,
+#custom-power {
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+}
+
+#clock {
+    color: @mauve;
+    border-radius: 1rem;
+    margin-left: 1rem;
+}
+
+#cpu{
+    color: @peach;
+    border-radius: 1rem 0px 0px 1rem;
+}
+
+#memory{
+    color: @yellow;
+}
+
+#network{
+    color: @green;
+    border-radius: 0px 1rem 1rem 0px;
+    margin-right: 1rem;
+}
+
+#battery {
+    color: @green;
+}
+
+#battery.charging {
+    color: @green;
+}
+
+#battery.warning:not(.charging) {
+    color: @red;
+}
+
+#backlight {
+    color: @yellow;
+}
+
+#backlight, #battery {
+    border-radius: 0;
+}
+
+#pulseaudio {
+    color: @maroon;
+    border-radius: 1rem 0px 0px 1rem;
+    border-radius: 1rem ;
+    margin-right: 1rem;
+}
+
+#custom-music {
+    color: @mauve;
+    border-radius: 1rem;
+}
+
+#custom-lock {
+    border-radius: 1rem 0px 0px 1rem;
+    color: @lavender;
+}
+
+#custom-power {
+    margin-right: 1rem;
+    border-radius: 0px 1rem 1rem 0px;
+    color: @red;
+}
+#custom-github{
+    margin-right: 1rem;
+    border-radius: 1rem;
+    color: @sapphire;
+}
+#custom-weather{
+    margin-right: 1rem;
+    border-radius: 1rem;
+    color: @teal;
+}
+
+#tray {
+    margin-right: 1rem;
+    border-radius: 1rem;
+}
