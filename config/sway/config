@@ -38,9 +38,9 @@ output HDMI-A-2 position 1080 675
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lock-screen.jpg' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lock-screen.jpg'
+    timeout 300 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lock-screen.jpg' \
+    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lock-screen.jpg'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -74,6 +74,7 @@ exec swayidle -w \
     bindsym $mod+d exec $menu
     
     bindsym $mod+Ctrl+l exec swaylock -e -f -i ~/Pictures/wallpapers/lock-screen.jpg
+    bindsym $mod+Ctrl+Shift+l exec swaylock & systemctl suspend
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -211,7 +212,8 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
-    bindsym Print exec grim
+    # bindsym Print exec grim
+    bindsym Print exec QT_QPA_PLATFORM=xcb flameshot gui -c -s
 
 #
 # Status Bar:
