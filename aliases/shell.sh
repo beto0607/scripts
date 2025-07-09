@@ -35,13 +35,6 @@ alias edit_hosts="sudo vi /etc/hosts"
 # PNPM
 alias pnpx="pnpm exec"
 
-# Flameshot
-# alias flameshot="~/App/Flameshot/Flameshot-12.1.0.x86_64.AppImage"
-alias flameshot_gui="flameshot gui"
-
-# Kanata
-alias enable_kanata="systemctl --user enable kanata.service"
-alias disable_kanata="systemctl --user disable kanata.service"
-alias stop_kanata="systemctl --user stop kanata.service"
-alias start_kanata="systemctl --user start kanata.service"
-
+# SSH
+alias ssh_thinkpad="ssh -i ~/.ssh/home beto0607@192.168.8.153"
+alias ssh_thinkpad="ssh -i ~/.ssh/home rpi1@192.168.8.132"

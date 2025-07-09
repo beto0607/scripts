@@ -1,3 +1,0 @@
-#!/bin/zsh
-
-ssh -i ~/.ssh/home rpi1@192.168.8.132
