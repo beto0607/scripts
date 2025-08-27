@@ -17,7 +17,6 @@
         "cpu",
         "memory",
         "network",
-        // TODO: enabled this when gh-bf is enable
         "custom/github",
         "custom/weather",
         "custom/lock",

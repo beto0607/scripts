@@ -37,10 +37,10 @@ output HDMI-A-2 position 1080 675
 #
 # Example configuration:
 #
-exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lock-screen.jpg' \
-    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lock-screen.jpg'
+# exec swayidle -w \
+#     timeout 300 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lock-screen.jpg' \
+#     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#     before-sleep 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lock-screen.jpg'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -56,7 +56,14 @@ exec swayidle -w \
 #       natural_scroll enabled
 #       middle_emulation enabled
 #   }
-#
+
+input * {
+    xkb_layout "us"
+    xkb_variant "altgr-intl"
+}
+
+focus_follows_mouse no
+
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
@@ -160,7 +167,8 @@ exec swayidle -w \
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    # bindsym $mod+space focus mode_toggle
+    bindsym $mod+space exec $menu
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -211,6 +219,13 @@ bindsym $mod+r mode "resize"
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    # Media keys for music control using playerctl
+    bindsym XF86AudioPlay exec playerctl play-pause
+    bindsym XF86AudioPause exec playerctl play-pause 
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
+    bindsym XF86AudioStop exec playerctl stop
+
     # Special key to take a screenshot with grim
     # bindsym Print exec grim
     bindsym Print exec "QT_QPA_PLATFORM=xcb flameshot gui -c --raw | wl-copy"

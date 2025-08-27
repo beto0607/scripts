@@ -126,6 +126,10 @@ fi
 if [ -f "$HOME/Personal/secrets.sh" ]; then
     source $HOME/Personal/secrets.sh
 fi
+# Init  vars
+if [ -f "$HOME/Personal/scripts/config/variables.sh" ]; then
+    source $HOME/Personal/scripts/config/variables.sh
+fi
 # Plugins
 #source /home/beto0607/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

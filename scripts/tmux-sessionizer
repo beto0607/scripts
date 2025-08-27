@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-extraFolder=("/home/beto0607/.config/nvim" "/home/beto0607/.config/git" "/home/beto0607/.config/sway" "/home/beto0607/Downloads" "/home/beto0607/App")
+extraFolder=("/home/beto0607/.config/nvim" "/home/beto0607/.config/git" "/home/beto0607/.config/sway" "/home/beto0607/Downloads" "/home/beto0607/App" "/home/beto0607/Repos")
 
 if [[ $# -eq 1 ]]; then
     selected=$1
     selectedPath=$1
 else
-    findResult=$(find ~/Bannerflow ~/Personal ~/Boemiz -mindepth 0 -maxdepth 1 -type d -not -name ".*")
+    findResult=$(find ~/Bannerflow ~/Personal ~/Repos -mindepth 0 -maxdepth 1 -type d -not -name ".*")
     readarray -t files <<<"$findResult"
     files+=(${extraFolder[*]})
     IFS=$'\n'
