@@ -40,3 +40,4 @@ alias ssh_rpi1="ssh -i ~/.ssh/home rpi1@192.168.8.132"
 
 # Avahi
 alias publish_lab_local="avahi-publish -a lab.local -R 192.168.8.153"
+

@@ -1,7 +1,7 @@
 @import "macchiato.css";
 
 * {
-    font-family: Mononoki Nerd Font;
+    font-family: Mononoki Nerd Font, "Noto Sans";
     font-size: 16px;
     min-height: 0;
 }
@@ -25,7 +25,7 @@
     padding: 0.4rem;
 }
 
-#workspaces button.focused{
+#workspaces button.focused {
     color: @sky;
     background-color: @surface1;
     border-radius: 1rem;
@@ -61,16 +61,16 @@
     margin-left: 1rem;
 }
 
-#cpu{
+#cpu {
     color: @peach;
     border-radius: 1rem 0px 0px 1rem;
 }
 
-#memory{
+#memory {
     color: @yellow;
 }
 
-#network{
+#network {
     color: @green;
     border-radius: 0px 1rem 1rem 0px;
     margin-right: 1rem;
@@ -92,14 +92,15 @@
     color: @yellow;
 }
 
-#backlight, #battery {
+#backlight,
+#battery {
     border-radius: 0;
 }
 
 #pulseaudio {
     color: @maroon;
     border-radius: 1rem 0px 0px 1rem;
-    border-radius: 1rem ;
+    border-radius: 1rem;
     margin-right: 1rem;
 }
 
@@ -118,12 +119,14 @@
     border-radius: 0px 1rem 1rem 0px;
     color: @red;
 }
-#custom-github{
+
+#custom-github {
     margin-right: 1rem;
     border-radius: 1rem;
     color: @sapphire;
 }
-#custom-weather{
+
+#custom-weather {
     margin-right: 1rem;
     border-radius: 1rem;
     color: @teal;

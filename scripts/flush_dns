@@ -1,5 +1,0 @@
-#!/bin/zsh
-
-
-sudo resolvectl flush-caches
-

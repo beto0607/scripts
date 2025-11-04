@@ -17,7 +17,6 @@
         "cpu",
         "memory",
         "network",
-        "custom/github",
         "custom/weather",
         "custom/lock",
         "custom/power"
