@@ -115,6 +115,8 @@ bindkey -s ^f "tmux-sessionizer\n"
 # ----------------------------------
 export PATH="$SYSTEM_PATHS:$LANGUAGES_PATHS:$APPS_PATHS:$CUSTOM_PATHS:$PATH"
 # ----------------------------------
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+# ----------------------------------
 
 # Init custom confs
 source $PERSONAL_FOLDER/scripts/scripts/init.sh
