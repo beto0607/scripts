@@ -29,6 +29,7 @@
     wtclear = ! ~/Personal/scripts/scripts/git/clear_worktrees
     webbr = "!gh repo view --web --branch $(git branch --show-current) > /dev/null"
     webpr = "!gh pr view --web > /dev/null"
+    teabr = "!xdg-open $(git config get web.url)/src/branch/$(git branch --show-current)"
 
 [core]
     editor = nvim

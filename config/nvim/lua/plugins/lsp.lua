@@ -3,8 +3,8 @@ return {
   opts = {
     -- make sure mason installs the server
     servers = {
-      dartls = {},
-      phpactor = {},
+      -- dartls = {},
+      -- phpactor = {},
       html = {
         configurationSection = { "html", "css", "javascript" },
         embeddedLanguages = {
@@ -16,11 +16,11 @@ return {
       tsserver = {
         enabled = false,
       },
-      omnisharp = {
-        handlers = {
-          ["textDocument/definition"] = require("omnisharp_extended").handler,
-        },
-      },
+      -- omnisharp = {
+      --   handlers = {
+      --     ["textDocument/definition"] = require("omnisharp_extended").handler,
+      --   },
+      -- },
       vtsls = {
         -- explicitly add default filetypes, so that we can extend
         -- them in related extras

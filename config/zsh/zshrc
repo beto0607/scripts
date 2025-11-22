@@ -34,7 +34,7 @@ export FLUTTER_PATH="$HOME/App/flutter/bin"
 
 export ANDROID_TOOLS="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/cmdline-tools/latest/bin"
 ANDROID_PATHS="$ANDROID_TOOLS:$FLUTTER_PATH:$ANDROID_EMULARTOR_HOME"
-# export JAVA_HOME="/usr/lib/jvm/default-java"
+export JAVA_HOME="/usr/lib/jvm/java-25-openjdk"
 # export JAVA_HOME="/usr/lib/jvm/jdk-24-oracle-x64"
 # export JAVA_HOME="/usr/lib/jvm/jdk-11.0.25-oracle-x64"
 
@@ -162,3 +162,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+source <(kubectl completion zsh)  # set up autocomplete in zsh into the current shell
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
