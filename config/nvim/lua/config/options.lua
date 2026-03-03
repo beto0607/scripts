@@ -4,3 +4,10 @@
 vim.opt.guicursor = ""
 
 vim.opt.colorcolumn = "80"
+
+vim.filetype.add({
+  extension = {
+    gohtml = "gotmpl",
+    tmpl = "gotmpl",
+  },
+})

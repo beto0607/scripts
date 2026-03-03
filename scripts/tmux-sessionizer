@@ -1,37 +1,37 @@
 #!/usr/bin/env bash
 
-extraFolder=("/home/beto0607/.config/alacritty" "/home/beto0607/.config/nvim" "/home/beto0607/.config/git" "/home/beto0607/.config/sway" "/home/beto0607/Downloads" "/home/beto0607/App" "/home/beto0607/Repos" "/home/beto0607/notes")
+extraFolder=("/home/beto0607/.config/alacritty" "/home/beto0607/.config/nvim" "/home/beto0607/.config/git" "/home/beto0607/.config/sway" "/home/beto0607/.config/systemd/user" "/home/beto0607/Downloads" "/home/beto0607/App" "/home/beto0607/Repos" "/home/beto0607/notes")
 
 if [[ $# -eq 1 ]]; then
-    selected=$1
-    selectedPath=$1
+  selected=$1
+  selectedPath=$1
 else
-    findResult=$(find ~/Personal ~/Repos -mindepth 0 -maxdepth 1 -type d -not -name ".*")
-    readarray -t files <<<"$findResult"
-    files+=(${extraFolder[*]})
-    IFS=$'\n'
-    selected=$(echo "${files[*]}" | fzf --bind 'ctrl-n:become:echo {}-extra')
-    selectedPath="${selected%-extra}"
+  findResult=$(find ~/Personal ~/Repos -mindepth 0 -maxdepth 1 -type d -not -name ".*")
+  readarray -t files <<<"$findResult"
+  files+=(${extraFolder[*]})
+  IFS=$'\n'
+  selected=$(echo "${files[*]}" | fzf --bind 'ctrl-n:become:echo {}-extra')
+  selectedPath="${selected%-extra}"
 fi
 
 if [[ -z $selected ]]; then
-    exit 0
+  exit 0
 fi
 
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selectedPath
-    exit 0
+  tmux new-session -s $selected_name -c $selectedPath
+  exit 0
 fi
 
 if ! tmux has-session -t=$selected_name 2>/dev/null; then
-    tmux new-session -ds $selected_name -c $selectedPath
+  tmux new-session -ds $selected_name -c $selectedPath
 fi
 
 if [[ -z $TMUX ]]; then
-    tmux attach -t $selected_name
+  tmux attach -t $selected_name
 else
-    tmux switch-client -t $selected_name
+  tmux switch-client -t $selected_name
 fi

@@ -11,7 +11,7 @@ export TERM=xterm-256color
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # -- .local folder
-LOCAL_FOLDER="$HOME/.local/"
+LOCAL_FOLDER="$HOME/.local"
 
 SYSTEM_PATHS="$LOCAL_FOLDER:$LOCAL_FOLDER/bin"
 # ----------------------------------
@@ -24,40 +24,19 @@ PYTHON_PATHS="$PYENV_ROOT/bin"
 # -- Dart
 export DART_PATH="$HOME/.pub-cache/bin"
 
-# -- Android/Flutter/Java
-export ANDROID_SDK_ROOT="$HOME/App/Android/Sdk"
-export ANDROID_HOME="$HOME/App/Android/Sdk"
-export ANDROID_EMULARTOR_HOME="$HOME/App/Android/Sdk/emulator"
-export ANDROID_AVD_HOME="$HOME/.config/.android/avd/"
-export ANDROID_STUDIO="$HOME/App/Android/android-studio"
-export FLUTTER_PATH="$HOME/App/flutter/bin"
-
-export ANDROID_TOOLS="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/cmdline-tools/latest/bin"
-ANDROID_PATHS="$ANDROID_TOOLS:$FLUTTER_PATH:$ANDROID_EMULARTOR_HOME"
+# -- Java
 export JAVA_HOME="/usr/lib/jvm/java-25-openjdk"
-# export JAVA_HOME="/usr/lib/jvm/jdk-24-oracle-x64"
-# export JAVA_HOME="/usr/lib/jvm/jdk-11.0.25-oracle-x64"
 
 # -- Go lang
 # export GO_LANG_HOME="$HOME/Apps/go/bin"
 export GO_BIN_PATH="/usr/local/go/bin"
 export GOBIN="$HOME/App/go/bin"
 export GOPATH="$HOME/Personal/.gopath"
-GO_LANG_PATHS="$HOME/App/go/bin"
+GO_LANG_PATHS="$GO_BIN_PATH:$HOME/App/go/bin"
 
-# -- Rust
-# . "$HOME/.cargo/env"
-
-# -- dotnet/.net
-export DOTNET_TOOLS_PATH="$HOME/.dotnet/tools"
 # -- Zig
 export ZIG_PATH="$HOME/App/Zig"
-
-# -- Odin
-export ODIN_PATH="$HOME/App/Odin"
-
-# -- PHP
-export LARAVEL_ROOT="$HOME/.config/composer/vendor/bin"
+export ZLS_PATH="$HOME/Repos/zls/zig-out/bin"
 
 # -- NPM
 NPM_PACKAGES="$HOME/.npm-packages"
@@ -71,35 +50,14 @@ export NVM_DIR="$HOME/.nvm"
 # -- QMK
 export QMK_HOME="$HOME/Personal/keyboards/qmk_firmware"
 
-LANGUAGES_PATHS="$GO_BIN_PATH:$GOBIN:$GO_LANG_PATHS:$NPM_PATHS:$ANDROID_PATHS:$PYTHON_PATHS:$ZIG_PATH:$LARAVEL_ROOT:$ODIN_PATH:$DART_PATH:$DOTNET_TOOLS_PATH"
+LANGUAGES_PATHS="$GO_LANG_PATHS:$NPM_PATHS:$PYTHON_PATHS:$ZLS_PATH:"
 # ----------------------------------
 
 # Apps
-# -- SpotifyD
-export SPOTIFYD="$HOME/spotify/spotifyd/target/release"
-
-# -- K9s
-export K9S_PATH="$HOME/App/k9s/execs"
-
-# -- Kitty
-export KITTY_PATH="$HOME/.local/kitty.app/bin"
-
-# -- NeoVim
-export NVIM_PATH="$HOME/App/Nvim"
-
-# -- Gitmux
-export GITMUX_PATH="$HOME/App/gitmux"
-
 # -- Node
 export NODE_OPTIONS="--max_old_space_size=8192"
 
-# -- Kubectl
-export KUBECTL_PATH="$HOME/App/Kubectl"
-
-# -- Postman
-export POSTMAN_PATH="$HOME/App/Postman"
-
-APPS_PATHS="$SPOTIFYD:$NVIM_PATH:$K9S_PATH:$KITTY_PATH:$GITMUX_PATH:$KUBECTL_PATH:$POSTMAN_PATH"
+APPS_PATHS=""
 # ----------------------------------
 
 # -- custom scripts
@@ -113,7 +71,7 @@ bindkey -s ^f "tmux-sessionizer\n"
 # ----------------------------------
 
 # ----------------------------------
-export PATH="$SYSTEM_PATHS:$LANGUAGES_PATHS:$APPS_PATHS:$CUSTOM_PATHS:$PATH"
+export PATH="$SYSTEM_PATHS:$LANGUAGES_PATHS:$CUSTOM_PATHS:$PATH"
 # ----------------------------------
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 # ----------------------------------
@@ -152,16 +110,11 @@ esac
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-
-# Load Angular CLI autocompletion.
-# source <(ng completion script)
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 source <(kubectl completion zsh)  # set up autocomplete in zsh into the current shell
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/beto0607/App/google-cloud-sdk/path.zsh.inc' ]; then . '/home/beto0607/App/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/beto0607/App/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/beto0607/App/google-cloud-sdk/completion.zsh.inc'; fi
