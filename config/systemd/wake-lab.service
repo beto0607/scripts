@@ -1,0 +1,12 @@
+[Unit]
+Description=Send Wake-on-LAN Magic Packet to ThinkPad E550
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/wakeonlan 68:f7:28:c2:46:6c
+
+[Install]
+WantedBy=default.target
+

@@ -1,0 +1,10 @@
+[Unit]
+Description=Run wake-thinkpad.service every 15 minutes
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=15min
+Unit=wake-lab.service
+
+[Install]
+WantedBy=timers.target
