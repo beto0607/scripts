@@ -56,6 +56,6 @@
 [url "git@github.com:beto0607/"]
   insteadOf = beto0607:
 
-[includeIf "gitdir:~/Boemiz/"]
-    path = ~/.config/git/boemiz.gitconfig
+#[includeIf "gitdir:~/Boemiz/"]
+#    path = ~/.config/git/boemiz.gitconfig
 

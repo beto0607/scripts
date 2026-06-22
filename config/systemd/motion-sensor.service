@@ -1,0 +1,21 @@
+[Unit]
+Description=Motion Sensor Screen Control
+# Start after the graphical session is up so we can control the display
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+# Restart automatically if the script crashes
+Restart=always
+RestartSec=5
+
+# Force Python to print logs immediately (useful for debugging with journalctl)
+Environment=PYTHONUNBUFFERED=1
+
+# Command to run your script
+# Ensure you are using python3
+ExecStart=/usr/bin/python3 %h/scripts/motion-sensor.py
+
+[Install]
+WantedBy=default.target
