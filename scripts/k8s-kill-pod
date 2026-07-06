@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+podsResult=$(kubectl get pods -A -o "jsonpath={range .items[*]}{.metadata.name}{' '}{.metadata.namespace}{'\n'}{end}")
+selected=$(echo "${podsResult[*]}" | fzf)
+
+if [[ -z $selected ]]; then
+  exit 0
+fi
+
+IFS=" " read -ra array <<< "$selected"
+kubectl delete pods "${array[0]}" --namespace "${array[1]}"
+
+
