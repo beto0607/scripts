@@ -2,6 +2,8 @@
 
 extraFolder=("/home/beto0607/.config/alacritty" "/home/beto0607/.config/nvim" "/home/beto0607/.config/git" "/home/beto0607/.config/sway" "/home/beto0607/.config/systemd/user" "/home/beto0607/Downloads" "/home/beto0607/App" "/home/beto0607/Repos" "/home/beto0607/notes" "/home/beto0607/Boemiz")
 
+servers=("rpi1" "rpi2" "rpi3" "rpi3b" "lab")
+
 if [[ $# -eq 1 ]]; then
   selected=$1
   selectedPath=$1
@@ -9,6 +11,7 @@ else
   findResult=$(find ~/Personal ~/Repos ~/Boemiz -mindepth 0 -maxdepth 1 -type d -not -name ".*")
   readarray -t files <<<"$findResult"
   files+=(${extraFolder[*]})
+  files+=(${servers[*]}) # Add servers to the fzf list
   IFS=$'\n'
   selected=$(echo "${files[*]}" | fzf --bind 'ctrl-n:become:echo {}-extra')
   selectedPath="${selected%-extra}"
@@ -18,16 +21,46 @@ if [[ -z $selected ]]; then
   exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+is_server=0
+for server in "${servers[@]}"; do
+  if [[ "$selectedPath" == "$server" ]]; then
+    is_server=1
+    break
+  fi
+done
+
+if [[ $is_server -eq 1 ]]; then
+  selected_name=$selectedPath
+else
+  selected_name=$(basename "$selectedPath" | tr . _)
+fi
+
 tmux_running=$(pgrep tmux)
 
+ssh_cmd="ssh -t $selectedPath@$selectedPath.local 'tmux new-session -A -s $selected_name'"
+
+if [[ "$selectedPath" == "lab" ]]; then
+  ssh_cmd="ssh -t beto0607@$selectedPath.local 'tmux new-session -A -s $selected_name'"
+fi
+
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-  tmux new-session -s $selected_name -c $selectedPath
+  # tmux new-session -s $selected_name -c $selectedPath
+
+  if [[ $is_server -eq 1 ]]; then
+    tmux new-session -s "$selected_name" "$ssh_cmd"
+  else
+    tmux new-session -s "$selected_name" -c "$selectedPath"
+  fi
   exit 0
 fi
 
 if ! tmux has-session -t=$selected_name 2>/dev/null; then
-  tmux new-session -ds $selected_name -c $selectedPath
+  # tmux new-session -ds $selected_name -c $selectedPath
+  if [[ $is_server -eq 1 ]]; then
+    tmux new-session -ds "$selected_name" "$ssh_cmd"
+  else
+    tmux new-session -ds "$selected_name" -c "$selectedPath"
+  fi
 fi
 
 if [[ -z $TMUX ]]; then
