@@ -41,8 +41,8 @@
     auto = false
     strategy = incremental
 
-[core]
-    sshCommand = ssh -i ~/.ssh/beto0607
+#[core]
+#    sshCommand = ssh -i ~/.ssh/beto0607
 
 [pull]
     rebase = true

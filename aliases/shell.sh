@@ -40,6 +40,7 @@ alias ssh_rpi1="ssh -i ~/.ssh/home rpi1@192.168.8.132"
 
 # Avahi
 alias publish_lab_local="avahi-publish -a lab.local -R 192.168.8.153"
+alias publish_desk_local="avahi-publish -a desk.local -R 192.168.8.163"
 
 # Wake lab notebook
 alias wakelab="wakeonlan 68:f7:28:c2:46:6c"
