@@ -2,7 +2,7 @@
 
 extraFolder=("/home/beto0607/.config/alacritty" "/home/beto0607/.config/nvim" "/home/beto0607/.config/git" "/home/beto0607/.config/sway" "/home/beto0607/.config/systemd/user" "/home/beto0607/Downloads" "/home/beto0607/App" "/home/beto0607/Repos" "/home/beto0607/notes" "/home/beto0607/Boemiz")
 
-servers=("rpi1" "rpi2" "rpi3" "rpi3b" "lab")
+servers=("rpi1" "rpi2" "rpi3" "rpi3b" "lab" "k9s")
 
 if [[ $# -eq 1 ]]; then
   selected=$1
@@ -41,6 +41,9 @@ ssh_cmd="ssh -t $selectedPath@$selectedPath.local 'tmux new-session -A -s $selec
 
 if [[ "$selectedPath" == "lab" ]]; then
   ssh_cmd="ssh -t beto0607@$selectedPath.local 'tmux new-session -A -s $selected_name'"
+elif [[ "$selectedPath" == "k9s" ]]; then
+  selectedPath="."
+  ssh_cmd="k9s"
 fi
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
