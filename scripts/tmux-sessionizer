@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-extraFolder=("/home/beto0607/.config/alacritty" "/home/beto0607/.config/nvim" "/home/beto0607/.config/git" "/home/beto0607/.config/sway" "/home/beto0607/.config/systemd/user" "/home/beto0607/Downloads" "/home/beto0607/App" "/home/beto0607/Repos" "/home/beto0607/notes" "/home/beto0607/Boemiz")
+extraFolder=("/home/beto0607/.config/nvim" "/home/beto0607/Downloads" "/home/beto0607/notes" "/home/beto0607/Music" "/home/beto0607/Videos")
 
-servers=("rpi1" "rpi2" "rpi3" "rpi3b" "lab" "k9s")
+servers=("rpi1" "rpi2" "rpi3" "rpi3b" "lab" "lab2" "lab-dell" "k9s")
 
 if [[ $# -eq 1 ]]; then
   selected=$1
   selectedPath=$1
 else
-  findResult=$(find ~/Personal ~/Repos ~/Boemiz -mindepth 0 -maxdepth 1 -type d -not -name ".*")
+  findResult=$(find ~/Personal ~/.config -mindepth 0 -maxdepth 1 -type d -not -name ".*")
   readarray -t files <<<"$findResult"
   files+=(${extraFolder[*]})
   files+=(${servers[*]}) # Add servers to the fzf list
@@ -37,10 +37,10 @@ fi
 
 tmux_running=$(pgrep tmux)
 
-ssh_cmd="ssh -t $selectedPath@$selectedPath.local 'tmux new-session -A -s $selected_name'"
+ssh_cmd="ssh -t $selectedPath@$selectedPath.local 'tmux -u new-session  -A -s $selected_name' "
 
 if [[ "$selectedPath" == "lab" ]]; then
-  ssh_cmd="ssh -t beto0607@$selectedPath.local 'tmux new-session -A -s $selected_name'"
+  ssh_cmd="ssh -t beto0607@$selectedPath.local 'tmux -u new-session -A -s $selected_name'"
 elif [[ "$selectedPath" == "k9s" ]]; then
   selectedPath="."
   ssh_cmd="k9s"

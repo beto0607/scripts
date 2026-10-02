@@ -15,19 +15,26 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term alacritty
-# Your preferred application launchea
-# set $menu wmenu-run
+# Your preferred application launcher
 for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
-set $menu exec $term --class=launcher -e /usr/bin/sway-launcher-desktop
+set $menu wmenu-run
+
+font pango:Fira Code, Symbols Nerd Font 11
+
+focus_follows_mouse no
+
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg ~/Pictures/wallpapers/bg.jpg fill
+# output * bg /home/beto0607/Pictures/wallpapers/bg.png fill
+output * bg /home/beto0607/Pictures/wallpapers/e0e15eba609ee58f4f1f661af240b78d.jpg fill
+
 #
 # Example configuration:
 #
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
 output HDMI-A-1 position 0 0 resolution 1920x1080 transform 90
 output HDMI-A-2 position 1080 675
 #
@@ -38,9 +45,9 @@ output HDMI-A-2 position 1080 675
 # Example configuration:
 #
 # exec swayidle -w \
-#     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#     timeout 300 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lock-screen.jpg' \
-#     before-sleep 'swaylock -f -c 000000 -i ~/Pictures/wallpapers/lock-screen.jpg'
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -50,21 +57,22 @@ output HDMI-A-2 position 1080 675
 #
 # Example configuration:
 #
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#   input type:touchpad {
 #       dwt enabled
 #       tap enabled
 #       natural_scroll enabled
 #       middle_emulation enabled
 #   }
-
-input * {
-    xkb_layout "us"
-    xkb_variant "altgr-intl"
+#
+#   input type:keyboard {
+#       xkb_layout "eu"
+#   }
+input type:keyboard {
+    xkb_layout us
+    xkb_variant intl
 }
-
-focus_follows_mouse no
-
-# You can get the names of your inputs by running: swaymsg -t get_inputs
+#
+# You can also configure each device individually.
 # Read `man 5 sway-input` for more information about this section.
 
 ### Key bindings
@@ -79,10 +87,10 @@ focus_follows_mouse no
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    
-    bindsym $mod+Ctrl+l exec swaylock -e -f -i ~/Pictures/wallpapers/lock-screen.jpg
-    bindsym $mod+Ctrl+Shift+l exec swaylock & systemctl suspend
+    bindsym $mod+space exec $menu
 
+    bindsym $mod+Ctrl+l exec swaylock -e -f -i ~/Pictures/wallpapers/1323165.png
+    bindsym $mod+Ctrl+Shift+l exec swaylock & systemctl suspend
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -168,7 +176,6 @@ focus_follows_mouse no
 
     # Swap focus between the tiling area and the floating area
     # bindsym $mod+space focus mode_toggle
-    bindsym $mod+space exec $menu
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -216,34 +223,49 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
     bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+
+    # Special keys to control media via playerctl
+    bindsym --locked XF86AudioPlay exec playerctl play-pause
+    bindsym --locked XF86AudioPause exec playerctl play-pause
+    bindsym --locked XF86AudioPrev exec playerctl previous
+    bindsym --locked XF86AudioNext exec playerctl next
+    bindsym --locked XF86AudioStop exec playerctl stop
+
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-    # Media keys for music control using playerctl
-    bindsym XF86AudioPlay exec playerctl play-pause
-    bindsym XF86AudioPause exec playerctl play-pause 
-    bindsym XF86AudioNext exec playerctl next
-    bindsym XF86AudioPrev exec playerctl previous
-    bindsym XF86AudioStop exec playerctl stop
 
     # Special key to take a screenshot with grim
+    bindsym Print exec grim -g "$(slurp)" - | swappy -f -
+    bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
+    bindsym Ctrl+Print exec grim - | wl-copy
     # bindsym Print exec grim
-    bindsym Print exec "QT_QPA_PLATFORM=xcb flameshot gui -c --raw | wl-copy"
 
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-
 include catppuccin-macchiato
 bar swaybar_command waybar
-
-# target                 title     bg    text   indicator  border
+#target                 title     bg    text   indicator  border
 client.focused           $lavender $base $text  $rosewater $lavender
 client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
 client.unfocused         $overlay0 $base $text  $rosewater $overlay0
 client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
+# bar {
+#     position top
+#
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+#
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
 
 include /etc/sway/config.d/*

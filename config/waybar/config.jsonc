@@ -16,8 +16,9 @@
         "backlight",
         "cpu",
         "memory",
+        "custom/disk_speed",
         "network",
-        "custom/weather",
+        "ustom/weather",
         "custom/lock",
         "custom/power"
     ],
@@ -35,6 +36,12 @@
         "interval": 2,
         "format": " {usage}% ",
         "max-length": 10
+    },
+    "custom/disk_speed": {
+      "format": "{text}",
+      "return-type": "json",
+      "interval": 2,
+      "exec": "$HOME/.config/waybar/disk-speed.sh"
     },
     "memory": {
         "format": " {percentage}%",
